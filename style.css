@@ -41,7 +41,7 @@ body {
 
 #logo {
     height: 10em;
-    width: 25em;
+    width: 70vw;
 }
 
 .login-form {
@@ -100,8 +100,8 @@ input[type="password"]:focus, input[type="password"]:hover {
 
 /*Sign-In Page Styling*/
 .signup-form {
-    background-color: rgba(255, 255, 255, 0.2);
-    height: 85vh;
+    background-color: rgba(255, 255, 255, 0.05);
+    height: 45em;
     width: 80vw;
     display: flex;
     justify-content: center;
@@ -113,6 +113,7 @@ input[type="password"]:focus, input[type="password"]:hover {
     font-size: 1.25em;
     font-weight: 700;
     backdrop-filter: blur(10px);
+    box-shadow: 2px 2px 2px 1px rgba(255, 255, 255, 0.1);
 }
 
 .signup-form input {
@@ -135,6 +136,8 @@ input[type="submit"] {
     margin: 3em;
     border-radius: 30px;
     cursor: pointer;
+    background-color: rgba(255, 255, 255, 0.2);
+    color: #fff;
 }
 
 input[type="submit"]:hover {
@@ -168,6 +171,11 @@ input[type="submit"]:hover {
     }
 
     .signup-form input[type="submit"] {
+        width: 35vw;
+    }
+
+    #logo {
+        height: 10em;
         width: 35vw;
     }
 }
