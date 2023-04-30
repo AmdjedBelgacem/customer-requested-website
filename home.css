@@ -1,0 +1,182 @@
+body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: red;
+    height: 2000px;
+  }
+  
+.mainlogo {
+  height: 2.5em;
+  width: 2.5em;
+}
+
+.nav-laptop {
+    display: none;
+}
+
+.nav-phone {
+    display: block;
+}
+nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 97vw;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 4em;
+  padding: 0 1em;
+  background-color: rgba(0,0,0,0.5);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+  .hamburger-menu {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 1em;
+  cursor: pointer;
+  transition: all 0.5s ease-in-out;
+}
+
+.bar {
+  width: 24px;
+  height: 3px;
+  background-color: #333;
+  transition: all 0.5s ease-in-out;
+}
+
+.menu-items {
+  position: absolute;
+  top: 3em;
+  right: -100%;
+  width: 97vw;
+  height: 20em;
+  background-color: rgba(0,0,0,0.5);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  border-radius: 0 0 30px 30px;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  transition: all 0.5s ease-in-out;
+}
+.menu-items a {
+  text-decoration: none;
+  color: #fff;
+  font-weight: 800;
+}
+.menu-items li:hover {
+  color: blue;
+  transform: scale(1.5);
+  background-color: pink;
+  padding: 1em 2em;
+  border-radius: 25px;
+  transition: all 0.3s ease-in-out;
+}
+.menu-items.active {
+  right: 0;
+}
+
+@media screen and (max-width: 627px) {
+    nav {
+        width: 95vw;
+    }
+    .menu-items {
+        width: 94vw;
+    }
+}
+
+@media screen and (min-width: 769px) {
+    .nav-phone {
+        display: none;
+    }
+    .nav-laptop {
+        display: block;
+    }
+    .user-info {
+        position: relative;
+    } 
+    #user-icon {
+      background-color: transparent;
+      border: none;
+      cursor: pointer;
+    }
+    #user-icon img {
+      height: 3em;
+      width: 3em;
+      padding-right: 2.5em;
+    }
+    #user-icon .info {
+      position: absolute;
+      top: -10em;
+      left: -5em;
+      margin-top: 1em;
+      background-color: #fff;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      padding: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+      opacity: 0;
+      transition: all 0.5s ease-in-out;
+      width: 8em;
+    }
+    #user-icon:hover .info {
+      top: 60px;
+      opacity: 1;
+    }
+    #user-name {
+      display: block;
+      font-size: 16px;
+      font-weight: bold;
+      margin-bottom: 5px;
+    }
+    #date-time {
+      display: block;
+      font-size: 14px;
+      color: #666;
+      margin-bottom: 5px;
+    }
+    #logout-button {
+      display: block;
+      margin-top: 10px;
+      background-color: #f00;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      padding: 5px 10px;
+      cursor: pointer;
+    }
+    #logout-button:hover {
+      background-color: #d00;
+    }    
+    nav {
+      width: 98.5vw;
+    }
+
+    .menu-links ul {
+      display: flex;
+      justify-content: space-between;
+      width: 60vw;   
+    }
+
+    .menu-links li {
+      list-style: none;
+      padding: 1em 2em;
+      cursor: pointer;
+      border-radius: 30px;
+    }
+
+    .menu-links li:hover {
+      background-color: pink;
+      transition: all 0.5s ease-in-out;
+    }
+  
+    .menu-links a {
+      text-decoration: none;
+      color: #fff;
+      font-weight: 700;
+    }
+}
