@@ -349,108 +349,106 @@ form textarea {
 
 /*Reserve page styling*/
 #menu-reserve {
-  padding-top: 10em;
-  color: #fff;
+  padding: 10em 1vw 0 1vw;
+  color: #000;
+  margin-bottom: 2em;
 }
 
 #menu-reserve  .categories {
   display: grid;
-  grid-template: repeat(2, 1fr)/repeat(3, 1fr);
+  grid-template: repeat(3, 1fr)/repeat(2, 1fr);
   justify-items: center;
+  align-items: center;
+  background-color: rgba(255, 255, 255, 0.5);
+  backdrop-filter: blur(10px);
+  border-radius: 20px;
+  padding-bottom: 5em;
 }
 
 .steaks-res > div, .seafood-res > div, .appetizers-res > div, .salads-res > div, .deserts-res > div {
-  background-color: red;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
   height: 15em;
-  width: 20vw;
+  width: 40vw;
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
   align-items: center;
   margin-bottom: 1em;
   background-size: 100% 100%;
+  border-radius: 30px;
+  padding-bottom: 2em;
 }
 
-.steaks-res > div:nth-child(1){
-  background-image: url('./images/filet-mignon.jpg');
+.quantity button {
+  border-radius: 30px;
+  border: none;
+  background-color: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(10px);
+  color: #fff;
+  padding: 0.6em 1em;
+  cursor: pointer;
+  font-weight: 700;
+} 
+
+.quantity input {
+  border-radius: 30px;
+  border: none;
+  padding: 0.5em 2vw 0.5em 3vw;
+  text-align: center;
+  font-weight: 700;
+  background-color: rgba(255, 255, 255, 0.7);
+  color: #000;
 }
 
-.steaks-res > div:nth-child(2){
-  background-image: url('./images/ribeye.jpeg');
+.add-to-cart-btn {
+  border-radius: 30px;
+  border: none;
+  background-color: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(10px);
+  color: #fff;
+  padding: 0.6em 1em;
+  cursor: pointer;
+  margin-top: 0.5em;
+  font-weight: 700;
 }
 
-.steaks-res > div:nth-child(3){
-  background-image: url('./images/newyorkstrip.jpg');
+.sides {
+  order: 6;
+  align-self: self-start;
+  grid-row: 4;
+  margin-left: 5vw;
 }
 
-.steaks-res > div:nth-child(4){
-  background-image: url('./images/tbone.jpg');
+#reservation {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
-
-
-.seafood-res > div:nth-child(1){
-  background-image: url('./images/grillsalamon.jpg');
+#cart {
+  width: 96vw;
+  height: 10em;
+  background: rgba(255, 255, 255, 0.5);
+  margin-bottom: 2em;
+  border-radius: 20px;
 }
 
-.seafood-res > div:nth-child(2){
-  background-image: url('./images/lobstertail.jpg');
+#reservation form {
+  width: 66vw;
+  display: flex;
+  flex-direction: column;
+  background: rgba(255, 255, 255, 0.5);
+  color: #000;
+  margin-right: 1em;
 }
 
-.seafood-res > div:nth-child(3){
-  background-image: url('./images/jumboscallops.jpg');
-}
-
-.seafood-res > div:nth-child(4){
-  background-image: url('./images/grilledjumbo.jpg');
-}
-
-.appetizers-res > div:nth-child(1){
-  background-image: url('./images/shrimpcocktail.jpg');
-}
-
-.appetizers-res > div:nth-child(2){
-  background-image: url('./images/calamarifritti.jpg');
-}
-
-.appetizers-res > div:nth-child(3){
-  background-image: url('./images/Prime-Rib-Sliders.jpg');
-}
-
-.appetizers-res > div:nth-child(4){
-  background-image: url('./images/trufflefries.jpg');
-}
-
-.salads-res > div:nth-child(1){
-  background-image: url('./images/cesarsalad.jpg');
-}
-
-.salads-res > div:nth-child(2){
-  background-image: url('./images/grilledstakesalad.jpg');
-}
-
-.salads-res > div:nth-child(3){
-  background-image: url('./images/spinach-salad.jpg');
-}
-
-.salads-res > div:nth-child(4){
-  background-image: url('./images/mediterraneanchickensalad.jpg');
-}
-
-.deserts-res > div:nth-child(1){
-  background-image: url('./images/new-york-cheesecake.jpg');
-}
-
-.deserts-res > div:nth-child(2){
-  background-image: url('./images/molten-lava-cake.jpg');
-}
-
-.deserts-res > div:nth-child(3){
-  background-image: url('./images/Creme-Brulee.jpg');
-}
-
-.deserts-res > div:nth-child(4){
-  background-image: url('./images/Tiramisu.jpg');
+#reservation form button {
+  margin-top: 1em;
+  padding: 0.5em 0 0.5em 0;
+  border: none;
+  border-radius: 15px;
+  font-weight: 700;
 }
 
 @media screen and (max-width: 627px) {
@@ -600,5 +598,26 @@ form textarea {
   }
   form {
     padding: 4em 10vw;
+  }
+
+  #menu-reserve  .categories {
+    grid-template: repeat(2, 1fr)/repeat(3, 1fr);
+  }
+
+  .steaks-res > div, .seafood-res > div, .appetizers-res > div, .salads-res > div, .deserts-res > div {
+    width: 20vw;
+  }
+
+  #reservation {
+  flex-direction: row;
+  }
+  #reservation form{
+    width: 34vw;
+  }
+  #cart{
+    height: 18.5em;
+    margin-top: 1.8em;
+    width: 42.5vw;
+    margin-left: 1em
   }
 }
