@@ -75,7 +75,7 @@ nav {
   font-weight: 800;
 }
 
-.menu-items li:last-child a {
+.menu-items li:nth-child(6) a {
   background-color: red;
   text-align: center;
   padding: 0.35em 20vw 0.35em 20vw;
@@ -126,7 +126,7 @@ nav {
 #menu, #feedback{
   color: #fff;
   padding: 15em 5vw 5em 5vw;
-  font-family: 'Cinzel Decorative', cursive;
+  font-family: 'Playfair Display', serif;
 }
 
 .steaks, .seafood, .appetizers, .salads, .deserts{
@@ -345,6 +345,112 @@ form textarea {
   transition: all 0.5s ease-in-out;
   background-color: #2c2b2b;
   color: #fff;
+}
+
+/*Reserve page styling*/
+#menu-reserve {
+  padding-top: 10em;
+  color: #fff;
+}
+
+#menu-reserve  .categories {
+  display: grid;
+  grid-template: repeat(2, 1fr)/repeat(3, 1fr);
+  justify-items: center;
+}
+
+.steaks-res > div, .seafood-res > div, .appetizers-res > div, .salads-res > div, .deserts-res > div {
+  background-color: red;
+  height: 15em;
+  width: 20vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+  margin-bottom: 1em;
+  background-size: 100% 100%;
+}
+
+.steaks-res > div:nth-child(1){
+  background-image: url('./images/filet-mignon.jpg');
+}
+
+.steaks-res > div:nth-child(2){
+  background-image: url('./images/ribeye.jpeg');
+}
+
+.steaks-res > div:nth-child(3){
+  background-image: url('./images/newyorkstrip.jpg');
+}
+
+.steaks-res > div:nth-child(4){
+  background-image: url('./images/tbone.jpg');
+}
+
+
+
+.seafood-res > div:nth-child(1){
+  background-image: url('./images/grillsalamon.jpg');
+}
+
+.seafood-res > div:nth-child(2){
+  background-image: url('./images/lobstertail.jpg');
+}
+
+.seafood-res > div:nth-child(3){
+  background-image: url('./images/jumboscallops.jpg');
+}
+
+.seafood-res > div:nth-child(4){
+  background-image: url('./images/grilledjumbo.jpg');
+}
+
+.appetizers-res > div:nth-child(1){
+  background-image: url('./images/shrimpcocktail.jpg');
+}
+
+.appetizers-res > div:nth-child(2){
+  background-image: url('./images/calamarifritti.jpg');
+}
+
+.appetizers-res > div:nth-child(3){
+  background-image: url('./images/Prime-Rib-Sliders.jpg');
+}
+
+.appetizers-res > div:nth-child(4){
+  background-image: url('./images/trufflefries.jpg');
+}
+
+.salads-res > div:nth-child(1){
+  background-image: url('./images/cesarsalad.jpg');
+}
+
+.salads-res > div:nth-child(2){
+  background-image: url('./images/grilledstakesalad.jpg');
+}
+
+.salads-res > div:nth-child(3){
+  background-image: url('./images/spinach-salad.jpg');
+}
+
+.salads-res > div:nth-child(4){
+  background-image: url('./images/mediterraneanchickensalad.jpg');
+}
+
+.deserts-res > div:nth-child(1){
+  background-image: url('./images/new-york-cheesecake.jpg');
+}
+
+.deserts-res > div:nth-child(2){
+  background-image: url('./images/molten-lava-cake.jpg');
+}
+
+.deserts-res > div:nth-child(3){
+  background-image: url('./images/Creme-Brulee.jpg');
+}
+
+.deserts-res > div:nth-child(4){
+  background-image: url('./images/Tiramisu.jpg');
 }
 
 @media screen and (max-width: 627px) {

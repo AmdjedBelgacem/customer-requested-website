@@ -43,3 +43,25 @@ logoutButton.addEventListener('click', () => {
   alert('Logged out successfully!');
 });
 
+var minusBtns = document.querySelectorAll('.minus-btn');
+  var plusBtns = document.querySelectorAll('.plus-btn');
+
+  minusBtns.forEach(function(btn) {
+    btn.addEventListener('click', function() {
+      var input = this.nextElementSibling;
+      var value = parseInt(input.value);
+      if (value > 1) {
+        input.value = value - 1;
+      }
+    });
+  });
+
+  plusBtns.forEach(function(btn) {
+    btn.addEventListener('click', function() {
+      var input = this.previousElementSibling;
+      var value = parseInt(input.value);
+      if (value < 10) {
+        input.value = value + 1;
+      }
+    });
+  });
