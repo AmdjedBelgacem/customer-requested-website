@@ -42,3 +42,4 @@ userIcon.addEventListener('click', () => {
 logoutButton.addEventListener('click', () => {
   alert('Logged out successfully!');
 });
+

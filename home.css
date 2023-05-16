@@ -1,43 +1,47 @@
 body {
-    margin: 0;
-    font-family: Arial, Helvetica, sans-serif;
-    background-color: red;
-    height: 2000px;
-  }
-  
+  margin: 0;
+  font-family: sans-serif;
+  background-color: rgba(23,22,22, 1);
+}
+
 .mainlogo {
-  height: 2.5em;
-  width: 2.5em;
+  height: 2em;
+  width: 2em;
 }
 
 .nav-laptop {
-    display: none;
+  display: none;
 }
 
 .nav-phone {
-    display: block;
+  display: block;
 }
+
 nav {
   position: fixed;
-  top: 0;
-  left: 0;
-  width: 97vw;
+  width: 90vw;
   display: flex;
   justify-content: space-between;
   align-items: center;
   height: 4em;
   padding: 0 1em;
-  background-color: rgba(0,0,0,0.5);
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  margin-left: 1.2em;
+  background: linear-gradient(to right, rgba(255, 255, 255, 0.8), rgba(160, 152, 156, 0.8));
+  backdrop-filter: blur(10px);
+  z-index: 200;
+  top: 0.5em;
+  border-radius: 100em;
 }
 
-  .hamburger-menu {
+
+.hamburger-menu {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   height: 1em;
   cursor: pointer;
   transition: all 0.5s ease-in-out;
+  margin-right: 5vw;
 }
 
 .bar {
@@ -50,133 +54,445 @@ nav {
 .menu-items {
   position: absolute;
   top: 3em;
-  right: -100%;
-  width: 97vw;
+  right: -115%;
+  width: 85vw;
   height: 20em;
-  background-color: rgba(0,0,0,0.5);
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-  border-radius: 0 0 30px 30px;
+  background: linear-gradient(to right, rgba(248, 205, 218, 0.8), rgba(244, 163, 199, 0.8));
+  backdrop-filter: blur(10px);
   list-style: none;
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
   align-items: center;
   transition: all 0.5s ease-in-out;
+  margin: 2em 2vw 0 0;
+  border-radius: 30px;
 }
+
 .menu-items a {
   text-decoration: none;
-  color: #fff;
+  color: #000;
   font-weight: 800;
 }
+
+.menu-items li:last-child a {
+  background-color: red;
+  text-align: center;
+  padding: 0.35em 20vw 0.35em 20vw;
+  margin-right: 5vw;
+  border-radius: 30px;
+  color: #fff;
+}
+
 .menu-items li:hover {
-  color: blue;
   transform: scale(1.5);
-  background-color: pink;
+  background-color: rgba(255, 255, 255, 0.2);
   padding: 1em 2em;
   border-radius: 25px;
   transition: all 0.3s ease-in-out;
+  backdrop-filter: blur(10px);
 }
+
 .menu-items.active {
   right: 0;
 }
 
+#introductory-plate {
+  background: url('./images/intropic.jpg');
+  height: 100vh;
+  width: 100%;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.quote {
+  background-color: white;
+  height: 22em;
+  margin-top: -1em;
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  align-items: center;
+  justify-content: center;
+}
+
+.quote p {
+  width: 80%;
+  font-family: LatoRegular;
+  src: url(../css/fonts/Lato-Regular.ttf);
+  font-size: 1.2em;
+}
+
+#menu, #feedback{
+  color: #fff;
+  padding: 15em 5vw 5em 5vw;
+  font-family: 'Cinzel Decorative', cursive;
+}
+
+.steaks, .seafood, .appetizers, .salads, .deserts{
+  display: grid; 
+  grid-template: repeat(4, 1fr)/1fr;
+  gap: 10px;
+  justify-items: center;
+  align-items: center;
+}
+
+.steaks, .seafood, .appetizers, .salads, .deserts{
+  width: 80vw;
+}
+
+.steaks, .seafood, .appetizers, .salads, .deserts{
+  padding-left: 5vw;
+}
+
+.closing-menu {
+  text-align: center;
+  margin-top: 4em;
+}
+/*mignon ribeye newyorkstrip tbone salamon lobster
+ scallops gjumbo cocktail calamari prime fries cesar 
+ stakesalad spinach chickensalad cheesecake lavacake 
+ brulee tiramisu*/
+#gallery {
+  background-color: #fff;
+  display: grid;
+  grid-template-areas:
+  "mignon""ribeye""newyorkstrip""tbone""salamon""lobster""scallops""gjumbo"
+  "cocktail""calamari""prime""fries""cesar""stakesalad""spinach""chickensalad"
+  "cheesecake""lavacake""brulee""tiramisu";
+  grid-template-columns: 1fr;
+  grid-template-rows: repeat(20, 25em);
+  grid-gap: 5px;
+  padding-top: 0.3em;
+}
+
+#gallery div {
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  background-position: center center;
+}
+
+#gallery div:hover {
+  background-size: 105% 105%;
+  cursor: pointer;
+}
+
+#gallery div p {
+  padding: 1em;
+  color: #000000;
+  font-weight: 600;
+}
+
+#gallery div:nth-child(1){
+  background-image: url('./images/filet-mignon.jpg');
+  grid-area: mignon;
+}
+
+#gallery div:nth-child(2){
+  background-image: url('./images/ribeye.jpeg');
+  grid-area: ribeye;
+}
+
+#gallery div:nth-child(3){
+  background-image: url('./images/newyorkstrip.jpg');
+  grid-area: newyorkstrip;
+}
+
+#gallery div:nth-child(4){
+  background-image: url('./images/tbone.jpg');
+  grid-area: tbone;
+}
+
+#gallery div:nth-child(5){
+  background-image: url('./images/grillsalamon.jpg');
+  grid-area: salamon;
+}
+
+#gallery div:nth-child(6){
+  background-image: url('./images/lobstertail.jpg');
+  grid-area: lobster;
+}
+
+#gallery div:nth-child(7){
+  background-image: url('./images/jumboscallops.jpg');
+  grid-area: scallops;
+}
+
+#gallery div:nth-child(8){
+  background-image: url('./images/grilledjumbo.jpg');
+  grid-area: gjumbo;
+}
+
+#gallery div:nth-child(9){
+  background-image: url('./images/shrimpcocktail.jpg');
+  grid-area: cocktail;
+}
+
+#gallery div:nth-child(10){
+  background-image: url('./images/calamarifritti.jpg');
+  grid-area: calamari;
+}
+
+#gallery div:nth-child(11){
+  background-image: url('./images/Prime-Rib-Sliders.jpg');
+  grid-area: prime;
+}
+
+#gallery div:nth-child(12){
+  background-image: url('./images/trufflefries.jpg');
+  grid-area: fries;
+}
+
+#gallery div:nth-child(13){
+  background-image: url('./images/cesarsalad.jpg');
+  grid-area: cesar;
+}
+
+#gallery div:nth-child(14){
+  background-image: url('./images/grilledstakesalad.jpg');
+  grid-area: stakesalad;
+}
+
+#gallery div:nth-child(15){
+  background-image: url('./images/spinach-salad.jpg');
+  grid-area: spinach;
+}
+
+#gallery div:nth-child(16){
+  background-image: url('./images/mediterraneanchickensalad.jpg');
+  grid-area: chickensalad;
+}
+
+#gallery div:nth-child(17){
+  background-image: url('./images/new-york-cheesecake.jpg');
+  grid-area: cheesecake;
+}
+
+#gallery div:nth-child(18){
+  background-image: url('./images/molten-lava-cake.jpg');
+  grid-area: lavacake;
+}
+
+#gallery div:nth-child(19){
+  background-image: url('./images/Creme-Brulee.jpg');
+  grid-area: brulee;
+}
+
+#gallery div:nth-child(20){
+  background-image: url('./images/Tiramisu.jpg');
+  grid-area: tiramisu;
+}
+
+#contactus{
+  background-color: #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding-bottom: 10em;
+}
+
+.info {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 100;
+  color: #242424;
+}
+
+.info a {
+  text-decoration: none;
+}
+
+form {
+  background-image: url("./images/carbon.jpg");
+  padding: 4em 15vw;
+  border-radius: 20px;
+  backdrop-filter: blur(20px);
+  color: #fff;
+  font-weight: 600;
+  z-index: -100;
+  margin-left: 1em;
+}
+
+form label {
+  line-height: 2;
+}
+
+form input {
+  padding: 0.5em 7vw 0.5em 1vw;
+  border-radius: 20px;
+  border: none; 
+}
+
+form input:hover {
+  padding: 0.6em 8vw 0.6em 2vw;
+  transition: all 0.5s ease-in-out;
+}
+
+form textarea {
+  border-radius: 10px;
+  height: 5em;
+  padding: 1em 8vw 1em 1vw;
+}
+
+#submit {
+  font-weight: 600;
+  padding: 0.5em 3vw 0.5em 3vw;
+  cursor: pointer;
+}
+
+#submit:hover {
+  padding: 0.6em 4vw 0.6em 4vw;
+  transition: all 0.5s ease-in-out;
+  background-color: #2c2b2b;
+  color: #fff;
+}
+
 @media screen and (max-width: 627px) {
-    nav {
-        width: 95vw;
-    }
-    .menu-items {
-        width: 94vw;
-    }
+  nav {
+    width: 90vw;
+    right: 0.7vw;
+  }
 }
 
 @media screen and (min-width: 769px) {
-    .nav-phone {
-        display: none;
-    }
-    .nav-laptop {
-        display: block;
-    }
-    .user-info {
-        position: relative;
-    } 
-    #user-icon {
-      background-color: transparent;
-      border: none;
-      cursor: pointer;
-    }
-    #user-icon img {
-      height: 3em;
-      width: 3em;
-      padding-right: 2.5em;
-    }
-    #user-icon .info {
-      position: absolute;
-      top: -10em;
-      left: -5em;
-      margin-top: 1em;
-      background-color: #fff;
-      border: 1px solid #ccc;
-      border-radius: 5px;
-      padding: 10px;
-      box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-      opacity: 0;
-      transition: all 0.5s ease-in-out;
-      width: 8em;
-    }
-    #user-icon:hover .info {
-      top: 60px;
-      opacity: 1;
-    }
-    #user-name {
-      display: block;
-      font-size: 16px;
-      font-weight: bold;
-      margin-bottom: 5px;
-    }
-    #date-time {
-      display: block;
-      font-size: 14px;
-      color: #666;
-      margin-bottom: 5px;
-    }
-    #logout-button {
-      display: block;
-      margin-top: 10px;
-      background-color: #f00;
-      color: #fff;
-      border: none;
-      border-radius: 5px;
-      padding: 5px 10px;
-      cursor: pointer;
-    }
-    #logout-button:hover {
-      background-color: #d00;
-    }    
-    nav {
-      width: 98.5vw;
-    }
+  .nav-phone {
+    display: none;
+  }
+  .nav-laptop {
+    display: block;
+  }
+  .user-info {
+    position: relative;
+  } 
+  #user-icon {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+  }
+  #user-icon img {
+    height: 2em;
+    width: 2em;
+    padding-right: 2.5em;
+  }
+  #user-icon .info {
+    position: absolute;
+    top: -10em;
+    left: -6em;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    opacity: 0;
+    transition: all 0.5s ease-in-out;
+    width: 8em;
+    text-align: center;
+  }
+  #user-icon:hover .info {
+    top: 60px;
+    opacity: 1;
+  }
+  #user-name {
+    display: block;
+    font-size: 16px;
+    font-weight: bold;
+    margin-bottom: 5px;
+  }
+  #date-time {
+    display: block;
+    font-size: 14px;
+    color: #666;
+    margin-bottom: 5px;
+  }
+  #logout-button {
+    display: block;
+    margin-top: 10px;
+    background-color: #f00;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 5px 10px;
+    cursor: pointer;
+    text-decoration: none;
+  }
+  #logout-button:hover {
+    background-color: #d00;
+  }    
+  nav {
+    width: 94vw;
+    height: 3.5em;
+  }
 
-    .menu-links ul {
-      display: flex;
-      justify-content: space-between;
-      width: 60vw;   
-    }
+  .menu-links ul {
+    display: flex;
+    justify-content: space-between;
+    width: 65vw;   
+  }
 
-    .menu-links li {
-      list-style: none;
-      padding: 1em 2em;
-      cursor: pointer;
-      border-radius: 30px;
-    }
+  .menu-links li {
+    list-style: none;
+    padding: 1em 2em;
+    cursor: pointer;
+    border-radius: 30px;
+    font-size: 0.8em;
+  }
 
-    .menu-links li:hover {
-      background-color: pink;
-      transition: all 0.5s ease-in-out;
-    }
+  .menu-links li:hover {
+    background-color: rgba(0,0,0, 0.6);
+    transition: all 0.5s ease-in-out;
+  }
+
+  .menu-links a {
+    text-decoration: none;
+    color: #000;
+    font-weight: 900;
+  }
+
+  .quote {
+    height: 30em;
+  }
+
+  .quote p {
+    font-size: 1.8em;
+    width: 65vh;
+  }
   
-    .menu-links a {
-      text-decoration: none;
-      color: #fff;
-      font-weight: 700;
-    }
+  .steaks, .seafood, .appetizers, .salads, .deserts{
+    grid-template: repeat(2, 1fr)/repeat(2, 1fr);
+    justify-items: center;
+    align-items: center;
+  }
+
+  .steaks p{
+    width: 40vw;
+  }
+
+  #gallery {
+    grid-template-areas: 
+    "mignon mignon ribeye"
+    "mignon mignon newyorkstrip"
+    "mignon mignon tbone"
+    "salamon lobster lobster"
+    "scallops lobster lobster"
+    "gjumbo lobster lobster"
+    "cocktail cocktail calamari"
+    "cocktail cocktail prime"
+    "cocktail cocktail fries"
+    "cesar stakesalad stakesalad"
+    "spinach stakesalad stakesalad"
+    "chickensalad stakesalad stakesalad"
+    "cheesecake cheesecake lavacake"
+    "cheesecake cheesecake brulee"
+    "cheesecake cheesecake tiramisu";
+    grid-template-columns: repeat(3, 33vw);
+    grid-template-rows: repeat(15, 15em);
+  }
+  #contactus {
+    flex-direction: row;
+    justify-content:space-between;
+    padding: 10em 10vw 10em 15vw;
+  }
+  form {
+    padding: 4em 10vw;
+  }
 }
