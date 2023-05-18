@@ -214,7 +214,7 @@ nav {
   /*payment screen*/
   .container {
     max-width: 95vw;
-    margin: 10em 0 0 3vw; 
+    margin: 10em 0 5em 3vw; 
   }
   
   .container h1 {

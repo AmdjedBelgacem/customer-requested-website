@@ -1,0 +1,23 @@
+{
+  "name": "customer-requested-website",
+  "version": "1.0.0",
+  "description": "",
+  "main": "home.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AmdjedBelgacem/customer-requested-website.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AmdjedBelgacem/customer-requested-website/issues"
+  },
+  "homepage": "https://github.com/AmdjedBelgacem/customer-requested-website#readme",
+  "dependencies": {
+    "express": "^4.18.2"
+  }
+}

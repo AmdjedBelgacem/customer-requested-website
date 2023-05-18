@@ -76,4 +76,47 @@ function smoothScroll(event) {
     });
   }
 }
-  
+
+/*Database*/
+var form = document.querySelector('.signup-form');
+
+        // Add form submit event listener
+        form.addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevent form submission
+
+            // Get form input values
+            var firstname = form.firstname.value;
+            var lastname = form.lastname.value;
+            var phonenumber = form.phonenumber.value;
+            var email = form.email.value;
+            var password = form.password.value;
+
+            // Create an object with the form data
+            var formData = {
+                firstname: firstname,
+                lastname: lastname,
+                phonenumber: phonenumber,
+                email: email,
+                password: password
+            };
+
+            // Store form data in localStorage
+            localStorage.setItem('formData', JSON.stringify(formData));
+
+            // Display a success message or redirect to another page
+            alert('Form data stored successfully!');
+        });
+
+        // Retrieve the stored form data from localStorage
+        var storedData = localStorage.getItem('formData');
+
+        // Check if any data is stored
+        if (storedData) {
+            // Parse the JSON string back into an object
+            var formData = JSON.parse(storedData);
+
+            // Display the form data in the console
+            console.log(formData);
+        } else {
+            console.log('No data found in localStorage.');
+        }
