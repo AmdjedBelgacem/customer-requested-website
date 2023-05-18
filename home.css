@@ -75,7 +75,7 @@ nav {
   font-weight: 800;
 }
 
-.menu-items li:nth-child(6) a {
+.menu-items li:nth-child(4) a {
   background-color: red;
   text-align: center;
   padding: 0.35em 20vw 0.35em 20vw;
@@ -85,7 +85,7 @@ nav {
 }
 
 .menu-items li:hover {
-  transform: scale(1.5);
+  transform: scale(1.05);
   background-color: rgba(255, 255, 255, 0.2);
   padding: 1em 2em;
   border-radius: 25px;
@@ -352,6 +352,7 @@ form textarea {
   padding: 10em 1vw 0 1vw;
   color: #000;
   margin-bottom: 2em;
+  margin-left:1vw; 
 }
 
 #menu-reserve  .categories {
@@ -451,6 +452,19 @@ form textarea {
   font-weight: 700;
 }
 
+input[type="date"], input[type="time"], input[type="time"]{
+  width: 58vw;
+}
+
+#checkout {
+  margin-top: 1em;
+  width: 50vw;
+  margin-left: 7vw;
+  background-color: rgb(19 19 19);
+  backdrop-filter: blur(20px);
+  color: #fff;
+}
+
 @media screen and (max-width: 627px) {
   nav {
     width: 90vw;
@@ -542,7 +556,7 @@ form textarea {
   }
 
   .menu-links li:hover {
-    background-color: rgba(0,0,0, 0.6);
+    background-color: rgba(255,255,255, 0.7);
     transition: all 0.5s ease-in-out;
   }
 
@@ -620,4 +634,12 @@ form textarea {
     width: 42.5vw;
     margin-left: 1em
   }
+  input[type="date"], input[type="time"]{
+    width: 26vw;
+  }  
+  #checkout {
+  width: 20vw;
+  cursor: pointer;
 }
+}
+

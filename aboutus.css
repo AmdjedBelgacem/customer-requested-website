@@ -1,0 +1,421 @@
+body {
+  margin: 0;
+  font-family: sans-serif;
+  background-image: url('./images/rest-phone.jpg');
+  background-size: 100vw 180vh;
+  background-repeat: no-repeat;
+}
+
+.mainlogo {
+  height: 2em;
+  width: 2em;
+}
+
+.nav-laptop {
+  display: none;
+}
+
+.nav-phone {
+  display: block;
+}
+
+nav {
+  position: fixed;
+  width: 90vw;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 4em;
+  padding: 0 1em;
+  margin-left: 1.2em;
+  background: linear-gradient(to right, rgba(255, 255, 255, 0.3), rgba(160, 152, 156, 0.3));
+  backdrop-filter: blur(10px);
+  z-index: 200;
+  top: 0.5em;
+  border-radius: 100em;
+}
+
+
+.hamburger-menu {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 1em;
+  cursor: pointer;
+  transition: all 0.5s ease-in-out;
+  margin-right: 5vw;
+}
+
+.bar {
+  width: 24px;
+  height: 3px;
+  background-color: #333;
+  transition: all 0.5s ease-in-out;
+}
+
+.menu-items {
+  position: absolute;
+  top: 3em;
+  right: -115%;
+  width: 85vw;
+  height: 20em;
+  background: linear-gradient(to right, rgba(0, 0, 0, 0.9), rgba(20, 20, 20, 0.9));
+  backdrop-filter: blur(10px);
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  transition: all 0.5s ease-in-out;
+  margin: 2em 2vw 0 0;
+  border-radius: 30px;
+}
+
+.menu-items a {
+  text-decoration: none;
+  color: #fff;
+  font-weight: 800;
+}
+
+.menu-items li:nth-child(4) a {
+  background-color: red;
+  text-align: center;
+  padding: 0.35em 20vw 0.35em 20vw;
+  margin-right: 5vw;
+  border-radius: 30px;
+  color: #fff;
+}
+
+.menu-items li:hover {
+  transform: scale(1.5);
+  background-color: rgba(255, 255, 255, 0.2);
+  padding: 1em 2em;
+  border-radius: 25px;
+  transition: all 0.3s ease-in-out;
+  backdrop-filter: blur(10px);
+}
+
+.menu-items.active {
+  right: 0;
+}
+
+#about-us, #contact-us{
+    color: #fff;
+    padding-top: 10em;
+    padding-left: 5vw;
+}
+
+#about-us h1{
+    border-bottom: 1px solid #FFF;
+    width: 4.5em; 
+}
+
+#about-us div {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center; 
+    align-content: center; 
+    padding-bottom: 10em;
+}
+
+#about-us p {
+    width: 80vw;
+}
+
+#about-us button {
+    margin-top: 3em;
+    border: none; 
+    padding: 1em 15vw 1em 15vw; 
+    border-radius: 20px;
+    background-color: rgba(255,255,255,0.5);
+    backdrop-filter: blur(20px);
+    color: #fff;
+    font-weight: 600; 
+}
+
+#about-us button:hover {
+    padding: 1.2em 18vw 1.2em 18vw;
+    background-color: rgba(150,150,150,0.5);
+    transition: all 0.5s ease-in-out;
+    cursor: pointer;
+}
+/*contact us*/
+#contactus{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 10em;
+  }
+  
+  .info {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 100;
+    color: #fff;
+  }
+  
+  .info h2 {
+    border-bottom: 1px solid;
+    width: 4.5em;
+  }
+
+  .info a {
+    text-decoration: none;
+    color: #fff;
+  }
+
+  form {
+    background: rgba(255,255,255,0.1);
+    backdrop-filter: blur(10px);
+    padding: 4em 15vw;
+    border-radius: 20px;
+    backdrop-filter: blur(20px);
+    color: #fff;
+    font-weight: 600;
+    z-index: -100;
+    margin-left: 1em;
+  }
+  
+  form label {
+    line-height: 2;
+  }
+  
+  form input {
+    padding: 0.5em 7vw 0.5em 1vw;
+    border-radius: 20px;
+    border: none; 
+  }
+  
+  form input:hover {
+    padding: 0.6em 8vw 0.6em 2vw;
+    transition: all 0.5s ease-in-out;
+  }
+  
+  form textarea {
+    border-radius: 10px;
+    height: 5em;
+    padding: 1em 8vw 1em 1vw;
+  }
+  
+  #submit {
+    font-weight: 600;
+    padding: 0.5em 3vw 0.5em 3vw;
+    cursor: pointer;
+  }
+  
+  #submit:hover {
+    padding: 0.6em 4vw 0.6em 4vw;
+    transition: all 0.5s ease-in-out;
+    background-color: #2c2b2b;
+    color: #fff;
+  }
+
+  /*payment screen*/
+  .container {
+    max-width: 95vw;
+    margin: 10em 0 0 3vw; 
+  }
+  
+  .container h1 {
+    text-align: center;
+    color: #fff;
+  }
+  
+  .card {
+    background-color: rgba(255,255,255,0.3);
+    backdrop-filter: blur(10px);
+    padding: 20px;
+    border-radius: 30px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    height: 20em;
+    display: flex;
+    flex-direction: column;
+    justify-content:space-around;
+    margin-bottom: 2em;
+  }
+
+  .cvv label {
+    margin-top: 0.8em;
+  }
+  
+  .container label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+    color: #fff;
+  }
+  
+  .container input[type="text"] {
+    width: 95%;
+    padding: 8px;
+    border: none;
+    border-radius: 15px;
+    color: #fff;
+    background-color: rgba(0, 0, 0, 0.2);
+    height: 1.5em;
+  }
+  
+  .container .submit-button {
+    display: block;
+    width: 80%;
+    padding: 10px;
+    margin-top: 10px;
+    background-color: rgba(0,0,0,0.6);
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    border-radius: 15px;
+    align-self: center;
+    transition: all 0.5s ease-in-out;
+  }
+  
+  .container .submit-button:hover {
+    background-color: rgba(0,0,0,1);
+    width: 90%;
+    height: 3em;
+  }
+
+  #status {
+    color: #fff;
+    background-color: rgba(255,255,255,0.3);
+    backdrop-filter: blur(10px);
+    height: 10vh;
+    border-radius: 20px;
+    padding: 1em;
+    text-align: center;
+  }
+  
+@media screen and (max-width: 627px) {
+    nav {
+      width: 90vw;
+      right: 0.7vw;
+    }
+}
+
+@media screen and (min-width: 769px) {
+    body {
+        background-image: url('./images/rest.jpg');
+    }
+
+    .nav-phone {
+      display: none;
+    }
+    .nav-laptop {
+      display: block;
+    }
+    .user-info {
+      position: relative;
+    } 
+    #user-icon {
+      background-color: transparent;
+      border: none;
+      cursor: pointer;
+    }
+    #user-icon img {
+      height: 2em;
+      width: 2em;
+      padding-right: 2.5em;
+    }
+    #user-icon .info {
+      position: absolute;
+      top: -10em;
+      left: -6em;
+      background-color: #fff;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      padding: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+      opacity: 0;
+      transition: all 0.5s ease-in-out;
+      width: 8em;
+      text-align: center;
+    }
+    #user-icon:hover .info {
+      top: 60px;
+      opacity: 1;
+    }
+    #user-name {
+      display: block;
+      font-size: 16px;
+      font-weight: bold;
+      margin-bottom: 5px;
+      color: #000;
+    }
+    #date-time {
+      display: block;
+      font-size: 14px;
+      color: #666;
+      margin-bottom: 5px;
+    }
+    #logout-button {
+      display: block;
+      margin-top: 10px;
+      background-color: #f00;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      padding: 5px 10px;
+      cursor: pointer;
+      text-decoration: none;
+    }
+    #logout-button:hover {
+      background-color: #d00;
+    }    
+    nav {
+      width: 94vw;
+      height: 3.5em;
+    }
+    .menu-links ul {
+    display: flex;
+    justify-content: space-between;
+    width: 65vw;   
+  }
+
+  .menu-links li {
+    list-style: none;
+    padding: 1em 2em;
+    cursor: pointer;
+    border-radius: 30px;
+    font-size: 0.8em;
+  }
+
+  .menu-links li:hover {
+    background-color: rgba(255,255,255, 0.7);
+    transition: all 0.5s ease-in-out;
+  }
+
+  .menu-links a {
+    text-decoration: none;
+    color: #000;
+    font-weight: 900;
+  }
+  #contactus {
+    flex-direction: row;
+    justify-content:space-between;
+    padding: 10em 10vw 10em 15vw;
+  }
+  form {
+    padding: 4em 10vw;
+  }
+
+  .container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .card {
+    width: 60%;
+    height: 40em;
+  }
+
+  .cvv label {
+    margin-top: 4em;
+  }
+  
+  #status{
+    width: 60%;
+  }
+}

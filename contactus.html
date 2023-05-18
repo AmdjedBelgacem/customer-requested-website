@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="aboutus.css">
+    <title>Document</title>
+</head>
+<body>
+    <div class="nav-phone">
+        <nav>
+            <a href="home.html"><img src="./images/mainlogo.png" alt="" class="mainlogo"></a>
+            <div class="hamburger-menu">
+                <div class="bar"></div>
+                <div class="bar"></div>
+                <div class="bar"></div>
+            </div>
+            <ul class="menu-items">
+                <li><a href="./reservation.html">Reservations</a></li>
+                <li><a href="./aboutus.html">About Us</a></li>
+                <li><a href="#contactus" onclick="smoothScroll(event)">Contact Us</a></li>
+                <li><a href="./index.html">Logout</a></li>
+                <li><span id="user-name" style="color:#fff;">John Doe</span></li>
+                <li><span id="date-time" style="color:#fff;">May 1, 2023 12:00:00</span></li>
+            </ul>
+        </nav>
+      </div>
+      <div class="nav-laptop">
+        <nav>
+            <a href="home.html"><img src="./images/mainlogo.png" alt="" class="mainlogo"></a>
+            <div class="menu-links">
+                <ul>
+                    <li><a href="./reservation.html">Menu</a></li>
+                    <li><a href="./reservation.html">Reservations</a></li>
+                    <li><a href="./aboutus.html">About Us</a></li>
+                    <li><a href="#contactus" onclick="smoothScroll(event)">Contact Us</a></li>
+                </ul>
+            </div>
+            <div>    
+                <div class="user-info">
+                    <div id="user-icon">
+                      <img src="./images/user-icon.png" alt="User Icon">
+                      <div class="info">
+                        <span id="user-name">John Doe</span>
+                        <span id="date-time">May 1, 2023 12:00:00</span>
+                        <a href="#" id="logout-button">Logout</a>
+                      </div>
+                    </div>
+                </div>              
+            </div>
+        </nav>
+      </div>
+      <div id="contactus">
+        <div class="info">
+          <div>
+            <h2>Location</h2>
+            <pre>
+    Beşiktaş, Istanbul
+    Abbasağa Neighborhood, Beşiktaş
+    Barbaros Bulvarı No: 123
+    34353 Beşiktaş/İstanbul
+    Turkey</pre>
+          </div>
+          <div>
+            <h2>Hours</h2>
+            <pre>
+    Tue – Thu, 8 am – 10 pm
+    Fri – Sun, 8 am – 11 pm
+    Closed Mondays
+            </pre>
+          </div>
+          <div>
+            <h2>Contact</h2>
+            <pre>
+    +90 212 123 4567
+    <a href="#">ali.steakhouse@corp.com</a>
+            </pre>
+          </div>
+        </div>
+        <div>
+          <form action="contact.php" method="POST">
+            <label for="name">Name:</label><br>
+            <input type="text" id="name" name="name" required><br><br>
+            <label for="email">Email:</label><br>
+            <input type="email" id="email" name="email" required><br><br>
+            <label for="subject">Subject:</label><br>
+            <input type="text" id="subject" name="subject" required><br><br>
+            <label for="message">Message:</label><br>
+            <textarea id="message" name="message" required></textarea><br><br>
+            <input type="submit" value="Submit" id="submit">
+          </form>
+        </div>
+      </div>
+    <script src="./home.js"></script>
+</body>
+</html>

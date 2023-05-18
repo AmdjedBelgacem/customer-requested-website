@@ -10,37 +10,34 @@
 </head>
 <body style="background-color: #ffa500; padding-bottom: 5em;">
     <div class="nav-phone">
-        <nav>
+        <nav style="background: rgba(250, 210, 135, 0.9);">
             <a href="home.html"><img src="./images/mainlogo.png" alt="" class="mainlogo"></a>
             <div class="hamburger-menu">
                 <div class="bar"></div>
                 <div class="bar"></div>
                 <div class="bar"></div>
             </div>
-            <ul class="menu-items">
-                <li><a href="#">Account</a></li>
-                <li><a href="#">Cart</a></li>
-                <li><a href="#">Reservations</a></li>
-                <li><a href="#">About Us</a></li>
-                <li><a href="#">Contact Us</a></li>
-                <li><a href="#">Logout</a></li>
+            <ul class="menu-items" style="background: rgba(250, 210, 135, 0.9);">
+                <li><a href="#reservation" onclick="smoothScroll(event)">Reservations</a></li>
+                <li><a href="./aboutus.html">About Us</a></li>
+                <li><a href="./contactus.html">Contact Us</a></li>
+                <li><a href="./index.html">Logout</a></li>
                 <li><span id="user-name">John Doe</span></li>
                 <li><span id="date-time">May 1, 2023 12:00:00</span></li>
             </ul>
         </nav>
       </div>
       <div class="nav-laptop">
-        <nav>
+        <nav style="background: rgba(250, 210, 135, 0.9);">
             <a href="home.html"><img src="./images/mainlogo.png" alt="" class="mainlogo"></a>
             <div class="menu-links">
                 <ul>
-                    <li><a href="#">Menu</a></li>
-                    <li><a href="#">Reservations</a></li>
-                    <li><a href="#">About Us</a></li>
-                    <li><a href="#" class="phone-out">Contact Us</a></li>
+                    <li><a href="#menu-reserve" onclick="smoothScroll(event)">Menu</a></li>
+                    <li><a href="#reservation" onclick="smoothScroll(event)">Reservations</a></li>
+                    <li><a href="./aboutus.html">About Us</a></li>
+                    <li><a href="./contactus.html">Contact Us</a></li>
                 </ul>
             </div>
-            <div><a href=""><i class="fa-solid fa-cart-shopping fa-2xl" style="color: #000000;"></i></a></div>
             <div>    
                 <div class="user-info">
                     <div id="user-icon">
@@ -48,7 +45,7 @@
                       <div class="info">
                         <span id="user-name">John Doe</span>
                         <span id="date-time">May 1, 2023 12:00:00</span>
-                        <a href="#" id="logout-button">Logout</a>
+                        <a href="./index.html" id="logout-button">Logout</a>
                       </div>
                     </div>
                 </div>              
@@ -275,12 +272,12 @@
     <div id="reservation">
         <div id="cart"></div>
         <div>
-            <form>
+            <form action="./checkout.html">
               <label for="date">Date:</label>
               <input type="date" id="date" name="date">
               <label for="time">Time:</label>
               <input type="time" id="time" name="time">
-              <button type="submit">Checkout</button>
+              <button type="submit" id="checkout">Checkout</button>
             </form>
         </div>
     </div>
