@@ -5,7 +5,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="home.css">
-    <script src="https://kit.fontawesome.com/e57a989e5f.js" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/firebase/7.14.1-0/firebase.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/firebase/7.14.1-0/firebase-auth.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/firebase/7.14.1-0/firebase-database.js"></script>
     <title>Document</title>
 </head>
 <body style="background-color: #ffa500; padding-bottom: 5em;">
@@ -59,156 +61,76 @@
             <h3>Steaks</h3>
             <div style="background-image: url('./images/filet-mignon.jpg');">
               <h4>Filet Mignon</h4>
-              <div class="quantity">
-                <button class="minus-btn">-</button>
-                <input type="number" value="1" min="1" max="10">
-                <button class="plus-btn">+</button>
-              </div>
-              <button class="add-to-cart-btn">Add to Cart</button>
+              <button id="add-fillet" class="add-to-cart-btn">Add to Cart</button>
             </div>
             <div style="background-image: url('./images/ribeye.jpeg');">
               <h4>Ribeye</h4>
-              <div class="quantity">
-                <button class="minus-btn">-</button>
-                <input type="number" value="1" min="1" max="10">
-                <button class="plus-btn">+</button>
-              </div>
-              <button class="add-to-cart-btn">Add to Cart</button>
+              <button id="add-ribeye" class="add-to-cart-btn">Add to Cart</button>
             </div>
             <div style="background-image: url('./images/newyorkstrip.jpg');">
               <h4>New York Strip</h4>
-              <div class="quantity">
-                <button class="minus-btn">-</button>
-                <input type="number" value="1" min="1" max="10">
-                <button class="plus-btn">+</button>
-              </div>
-              <button class="add-to-cart-btn">Add to Cart</button>
+              <button id="add-newyork" class="add-to-cart-btn">Add to Cart</button>
             </div>
             <div style="background-image: url('./images/tbone.jpg');">
               <h4>T-Bone</h4>
-              <div class="quantity">
-                <button class="minus-btn">-</button>
-                <input type="number" value="1" min="1" max="10">
-                <button class="plus-btn">+</button>
-              </div>
-              <button class="add-to-cart-btn">Add to Cart</button>
+              <button id="add-tbone" class="add-to-cart-btn">Add to Cart</button>
             </div>
           </div>
           <div class="seafood-res">
             <h3>Seafood</h3>
             <div style="background-image: url('./images/grillsalamon.jpg');">
               <h4>Grilled Atlantic Salmon</h4>
-              <div class="quantity">
-                <button class="minus-btn">-</button>
-                <input type="number" value="1" min="1" max="10">
-                <button class="plus-btn">+</button>
-              </div>
-              <button class="add-to-cart-btn">Add to Cart</button>
+              <button id="add-salamon" class="add-to-cart-btn">Add to Cart</button>
             </div>
             <div style="background-image: url('./images/lobstertail.jpg');">
               <h4>Lobster Tail</h4>
-              <div class="quantity">
-                <button class="minus-btn">-</button>
-                <input type="number" value="1" min="1" max="10">
-                <button class="plus-btn">+</button>
-              </div>
-              <button class="add-to-cart-btn">Add to Cart</button>
+              <button id="add-lobster" class="add-to-cart-btn">Add to Cart</button>
             </div>
             <div style="background-image: url('./images/jumboscallops.jpg');">
               <h4>Jumbo Sea Scallops</h4>
-              <div class="quantity">
-                <button class="minus-btn">-</button>
-                <input type="number" value="1" min="1" max="10">
-                <button class="plus-btn">+</button>
-              </div>
-              <button class="add-to-cart-btn">Add to Cart</button>
+              <button id="add-scallops" class="add-to-cart-btn">Add to Cart</button>
             </div>
             <div style="background-image: url('./images/grilledjumbo.jpg');">
               <h4>Grilled Jumbo Prawns</h4>
-              <div class="quantity">
-                <button class="minus-btn">-</button>
-                <input type="number" value="1" min="1" max="10">
-                <button class="plus-btn">+</button>
-              </div>
-              <button class="add-to-cart-btn">Add to Cart</button>
+              <button id="add-prawns" class="add-to-cart-btn">Add to Cart</button>
             </div>
           </div>
           <div class="appetizers-res">
               <h3>Appetizers</h3>
               <div style="background-image: url('./images/shrimpcocktail.jpg');">
                 <h4>Classic Shrimp Cocktail</h4>
-                <div class="quantity">
-                    <button class="minus-btn">-</button>
-                    <input type="number" value="1" min="1" max="10">
-                    <button class="plus-btn">+</button>
-                </div>
-                <button class="add-to-cart-btn">Add to Cart</button>
+                <button id="add-cocktail" class="add-to-cart-btn">Add to Cart</button>
               </div>
               <div style="background-image: url('./images/calamarifritti.jpg');">
                 <h4>Crispy Calamari</h4>
-                <div class="quantity">
-                    <button class="minus-btn">-</button>
-                    <input type="number" value="1" min="1" max="10">
-                    <button class="plus-btn">+</button>
-                  </div>
-                  <button class="add-to-cart-btn">Add to Cart</button>
+                <button id="add-calamari" class="add-to-cart-btn">Add to Cart</button>
               </div>
               <div style="background-image: url('./images/Prime-Rib-Sliders.jpg');">
                 <h4>Prime Rib Sliders</h4>
-                <div class="quantity">
-                    <button class="minus-btn">-</button>
-                    <input type="number" value="1" min="1" max="10">
-                    <button class="plus-btn">+</button>
-                </div>
-                <button class="add-to-cart-btn">Add to Cart</button>
+                <button id="add-primerib" class="add-to-cart-btn">Add to Cart</button>
               </div>
               <div style=" background-image: url('./images/trufflefries.jpg');">
                 <h4>Truffle Parmesan Fries</h4>
-                <div class="quantity">
-                    <button class="minus-btn">-</button>
-                    <input type="number" value="1" min="1" max="10">
-                    <button class="plus-btn">+</button>
-                </div>
-                <button class="add-to-cart-btn">Add to Cart</button>
+                <button id="add-fries" class="add-to-cart-btn">Add to Cart</button>
               </div>
             </div>
             <div class="salads-res">
                 <h3>Salads</h3>
                 <div style="background-image: url('./images/cesarsalad.jpg');">
-                    <h4>Caesar Salad</h4>
-                    <div class="quantity">
-                            <button class="minus-btn">-</button>
-                            <input type="number" value="1" min="1" max="10">
-                            <button class="plus-btn">+</button>
-                    </div>
-                    <button class="add-to-cart-btn">Add to Cart</button>
+                  <h4>Cesar Salad</h4>
+                  <button id="add-cesar" class="add-to-cart-btn">Add to Cart</button>
                 </div>
               <div style="background-image: url('./images/grilledstakesalad.jpg');">
                 <h4>Grilled Steak Salad</h4>
-                <div class="quantity">
-                    <button class="minus-btn">-</button>
-                    <input type="number" value="1" min="1" max="10">
-                    <button class="plus-btn">+</button>
-                </div>
-                <button class="add-to-cart-btn">Add to Cart</button>
+                <button id="add-steaksalad" class="add-to-cart-btn">Add to Cart</button>
               </div>
               <div style="background-image: url('./images/spinach-salad.jpg');">
                 <h4>Spinach and Goat Cheese Salad</h4>
-                <div class="quantity">
-                    <button class="minus-btn">-</button>
-                    <input type="number" value="1" min="1" max="10">
-                    <button class="plus-btn">+</button>
-                </div>
-                <button class="add-to-cart-btn">Add to Cart</button>
+                <button id="add-spinach" class="add-to-cart-btn">Add to Cart</button>
               </div>
               <div style="background-image: url('./images/mediterraneanchickensalad.jpg');">
                 <h4>Mediterranean Salad</h4>
-                <div class="quantity">
-                    <button class="minus-btn">-</button>
-                    <input type="number" value="1" min="1" max="10">
-                    <button class="plus-btn">+</button>
-                </div>
-                <button class="add-to-cart-btn">Add to Cart</button>
+                <button id="add-med" class="add-to-cart-btn">Add to Cart</button>
               </div>
             </div>
             <div class="sides">
@@ -220,57 +142,37 @@
                     <li>Truffle Mac and Cheese</li>
                     <li>Roasted Garlic Mashed Potatoes</li>
                 </ul>
-                <div class="quantity">
-                    <button class="minus-btn">-</button>
-                    <input type="number" value="1" min="1" max="10">
-                    <button class="plus-btn">+</button>
-                </div>
-                <button class="add-to-cart-btn">Add to Cart</button>
+                <button id="add-sides" class="add-to-cart-btn">Add to Cart</button>
             </div>
             <div class="deserts-res">
                 <h3>Desserts:</h3>
               <div style="background-image: url('./images/new-york-cheesecake.jpg');">
                 <h4>New York Cheesecake</h4>
-                <div class="quantity">
-                    <button class="minus-btn">-</button>
-                    <input type="number" value="1" min="1" max="10">
-                    <button class="plus-btn">+</button>
-                </div>
-                <button class="add-to-cart-btn">Add to Cart</button>
+                <button id="add-cheesecake" class="add-to-cart-btn">Add to Cart</button>
               </div>
               <div style="background-image: url('./images/molten-lava-cake.jpg');">
                 <h4>Molten Chocolate Lava Cake</h4>
-                <div class="quantity">
-                    <button class="minus-btn">-</button>
-                    <input type="number" value="1" min="1" max="10">
-                    <button class="plus-btn">+</button>
-                </div>
-                <button class="add-to-cart-btn">Add to Cart</button>
+                <button id="add-lava" class="add-to-cart-btn" >Add to Cart</button>
               </div>
               <div style="background-image: url('./images/Creme-Brulee.jpg');">
                 <h4>Crème Brûlée</h4>
-                <div class="quantity">
-                    <button class="minus-btn">-</button>
-                    <input type="number" value="1" min="1" max="10">
-                    <button class="plus-btn">+</button>
-                </div>
-                <button class="add-to-cart-btn">Add to Cart</button>
+                <button id="add-creme" class="add-to-cart-btn">Add to Cart</button>
               </div>
               <div style="background-image: url('./images/Tiramisu.jpg');">
                 <h4>Tiramisu</h4>
-                <div class="quantity">
-                    <button class="minus-btn">-</button>
-                    <input type="number" value="1" min="1" max="10">
-                    <button class="plus-btn">+</button>
-                </div>
-                <button class="add-to-cart-btn">Add to Cart</button>
+                <button id="add-tiramisu" class="add-to-cart-btn">Add to Cart</button>
               </div>
             </div>
         </div>
     </div>
     <h2 style="text-align: center;">You Ordered:</h2>
     <div id="reservation">
-        <div id="cart"></div>
+        <div id="cart">
+          <ul id="orders">
+            
+          </ul>
+          <p id="price"></p>
+        </div>
         <div>
             <form action="./checkout.html" id="reserv">
               <label for="date">Date:</label>
@@ -288,7 +190,12 @@
             <button id="track-btn">Track</button>
           </form>
         </div>
+        <div id="reserv-status">
+          <p id="green">You have Sucessfuly Made a Reservation!</p>
+          <p id="red">You haven't entered either Date/Time or Order!</p>
+        </div>
     </div>
     <script src="./home.js"></script>
+    <script src="./reservation.js"></script>
 </body>
 </html>

@@ -5,6 +5,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="aboutus.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/firebase/7.14.1-0/firebase.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/firebase/7.14.1-0/firebase-auth.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/firebase/7.14.1-0/firebase-database.js"></script>
     <title>Document</title>
 </head>
 <body>
@@ -42,8 +45,8 @@
                     <div id="user-icon">
                       <img src="./images/user-icon.png" alt="User Icon">
                       <div class="info">
-                        <span id="user-name">John Doe</span>
-                        <span id="date-time">May 1, 2023 12:00:00</span>
+                        <span id="user-name-laptop" style="color:#000;">John Doe</span>
+                        <span id="laptop-date-time" style="color:#666;">May 1, 2023 12:00:00</span>
                         <a href="#" id="logout-button">Logout</a>
                       </div>
                     </div>
@@ -59,7 +62,7 @@
             <p>Our warm and inviting ambiance creates the perfect setting for intimate dinners, celebratory gatherings, and memorable occasions. Immerse yourself in an atmosphere of sophistication and comfort as our attentive staff provides impeccable service, catering to your every need and ensuring a dining experience that surpasses your expectations.</p>
             <p>At Ali's Grill Steakhouse, we are not just a restaurant; we are a destination where passion for culinary excellence and the love for exceptional food merge harmoniously. Whether you're savoring a perfectly cooked steak, indulging in our delectable seafood creations, or relishing in our carefully curated wine selection, we invite you to join us on an unforgettable culinary journey.</p>
             <p>Come and experience the epitome of steakhouse dining at The Prime Grill Steakhouse – where every bite is a testament to our unwavering commitment to quality and your satisfaction.</p>
-            <button>Reserve Now</button>
+            <button onclick="window.location.href='./reservation.html'">Reserve Now</button>
         </div>
       </div>
       

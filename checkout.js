@@ -47,7 +47,6 @@ logoutButton.addEventListener('click', () => {
   alert('Logged out successfully!');
 });
 
-
 const firebaseConfig = {
   apiKey: "AIzaSyCYBZb5OjXixzYT0ZHAPtPRORUnf7r5FT8",
   authDomain: "lastsummer-35f2f.firebaseapp.com",
@@ -60,6 +59,10 @@ const firebaseConfig = {
 
 firebase.initializeApp(firebaseConfig);
 
+const paymentTableDB = firebase.database().ref('paymentTable');
+let paymentID = 0;
+var fullName = "";
+var datetimeres = "";
 const userTableDB = firebase.database().ref('usersTable');
 
 userTableDB.once('value', (snapshot) => {
@@ -70,80 +73,64 @@ userTableDB.once('value', (snapshot) => {
 
     if (user.state === 'active') {
       updateUserInfo(user.firstname, user.lastname);
+      fullName = `${user.firstname} ${user.lastname}` 
     }
   }
 });
 
+const reservationTableDB = firebase.database().ref('reservationTable');
 
-function logoutUser() {
-  userTableDB.once('value', (snapshot) => {
-    const users = snapshot.val();
+reservationTableDB.once('value', (snapshot) => {
+  const reservations = snapshot.val();
 
-    for (const userId in users) {
-      const user = users[userId];
+  for (const resapt in reservations) {
+    const resapi = reservations[resapt];
 
-      if (user.state === 'active') {
-        userTableDB.child(userId).update({ state: '' });
-      }
+    if (resapi.state === 'pending') {
+      datetimeres = `${resapi.date} ${resapi.time}`; 
     }
-  });
-  alert('Logged out successfully!');
-}
+  }
+});
 
-logoutButton.addEventListener('click', logoutUser); 
+document.getElementById('paymentform').addEventListener('submit', paymentForm);
 
-
-var contactusID = 0;
-var state ="";
-var contactTableDB = firebase.database().ref('contactTable')
-
-document.getElementById('contactus-form').addEventListener('submit', contactusForm);
-
-function contactusForm(e) {
+function paymentForm(e) {
   e.preventDefault();
 
-  var name = getElementVal('name');
-  var useremail = getElementVal('useremail');
-  var subject = getElementVal('subject');
-  var message = getElementVal('message');
+  const cardHolder = getElementVal('cardHolder');
+  const cardID = getElementVal('cardID');
+  const expireDate = getElementVal('expireDate');
+  const cvv = getElementVal('cvv');
 
-  saveUser(name, useremail, subject, message);
-  document.getElementById("p-stat").style.display = "block";
-  setTimeout(()=>{
-    document.getElementById("p-stat").style.display = "none";
-    document.getElementById("p-stat").style.transition = "all 0.3s ease-in-out";
-  }, 3000);
-  document.getElementById("contactus-form").reset();
+  if (cardID.length == 16 && isValidExpireDate(expireDate) && cvv.length === 3) {
+    userPayment(cardHolder, cardID, expireDate, cvv);
+    var successMessage = document.createElement('p');
+    successMessage.textContent = `Glad to have you at ${datetimeres} Dear ${fullName}`;
+    document.getElementById('paid').appendChild(successMessage);
+  } else {
+    alert("Something is wrong");
+  }
 }
 
-const saveUser = (name, useremail, subject, message) => {
-  var newContactUsForm = contactTableDB.push();
-  var newcontactusID = ++contactusID; 
-  newContactUsForm.set({
-    id: newcontactusID,
-    name: name,
-    useremail: useremail,
-    subject: subject,
-    message: message
+const isValidExpireDate = (expireDate) => {
+  const dateRegex = /^(0[1-9]|1[0-2])\/(2[4-9]|[3-9][0-9])$/;
+  return dateRegex.test(expireDate);
+};
+
+const userPayment = (cardHolder, cardID, expireDate, cvv) => {
+  const newPaymentForm = paymentTableDB.push();
+  const newPaymentID = ++paymentID; 
+  newPaymentForm.set({
+    id: newPaymentID,
+    reservationOwner: fullName,
+    cardHolder,
+    cardID,
+    expireDate,
+    cvv,
+    state: 'confirmed'
   });
 };
 
-const getElementVal = (id) => {
-  return document.getElementById(id).value;
-};
-
-
-
-function smoothScroll(event) {
-  event.preventDefault();
-  
-  const targetId = event.target.getAttribute("href");
-  const targetElement = document.querySelector(targetId);
-  
-  if (targetElement) {
-    targetElement.scrollIntoView({
-      behavior: "smooth",
-      block: "start"
-    });
-  }
+function getElementVal(elementId) {
+  return document.getElementById(elementId).value;
 }

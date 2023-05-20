@@ -4,80 +4,78 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/firebase/7.14.1-0/firebase.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/firebase/7.14.1-0/firebase-auth.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/firebase/7.14.1-0/firebase-database.js"></script>
     <link rel="stylesheet" href="aboutus.css">
     <title>Document</title>
 </head>
 <body>
-    <div class="nav-phone">
-        <nav>
-            <a href="home.html"><img src="./images/mainlogo.png" alt="" class="mainlogo"></a>
-            <div class="hamburger-menu">
-                <div class="bar"></div>
-                <div class="bar"></div>
-                <div class="bar"></div>
-            </div>
-            <ul class="menu-items">
-                <li><a href="./reservation.html">Reservations</a></li>
-                <li><a href="./aboutus.html">About Us</a></li>
-                <li><a href="./contactus.html">Contact Us</a></li>
-                <li><a href="./index.html">Logout</a></li>
-                <li><span id="user-name" style="color:#fff;">John Doe</span></li>
-                <li><span id="date-time" style="color:#fff;">May 1, 2023 12:00:00</span></li>
-            </ul>
-        </nav>
-      </div>
-      <div class="nav-laptop">
-        <nav>
-            <a href="home.html"><img src="./images/mainlogo.png" alt="" class="mainlogo"></a>
-            <div class="menu-links">
-                <ul>
-                    <li><a href="./home.html">Menu</a></li>
-                    <li><a href="./reservation.html">Reservations</a></li>
-                    <li><a href="./aboutus.html">About Us</a></li>
-                    <li><a href="./contactus.html">Contact Us</a></li>
-                </ul>
-            </div>
-            <div>    
-                <div class="user-info">
-                    <div id="user-icon">
-                      <img src="./images/user-icon.png" alt="User Icon">
-                      <div class="info">
-                        <span id="user-name">John Doe</span>
-                        <span id="date-time">May 1, 2023 12:00:00</span>
-                        <a href="#" id="logout-button">Logout</a>
-                      </div>
-                    </div>
-                </div>              
-            </div>
-        </nav>
-      </div>
-      <div class="container">
-        <h1>Enter Your Payment Infos:</h1>
-        <div class="card">
-          <div class="card-number">
-            <label for="card-number">Card Number:</label>
-            <input type="text" id="card-number" placeholder="Enter your card number" required>
-          </div>
-          <div class="card-details">
-            <div class="expiry-date">
-              <label for="expiry-date">Expiry Date:</label>
-              <input type="text" id="expiry-date" placeholder="MM/YY" required>
-            </div>
-            <div class="cvv">
-              <label for="cvv">CVV:</label>
-              <input type="text" id="cvv" placeholder="CVV" required>
-            </div>
-          </div>
-          <div class="card-holder">
-            <label for="card-holder-name">Card Holder Name:</label>
-            <input type="text" id="card-holder-name" placeholder="Enter the card holder's name" required>
-          </div>
-          <button class="submit-button" type="submit">Submit</button>
+  <div class="nav-phone">
+    <nav>
+        <a href="home.html"><img src="./images/mainlogo.png" alt="" class="mainlogo"></a>
+        <div class="hamburger-menu">
+            <div class="bar"></div>
+            <div class="bar"></div>
+            <div class="bar"></div>
         </div>
-        <div id="status">
-          <p></p>
+        <ul class="menu-items">
+            <li><a href="./reservation.html">Reservations</a></li>
+            <li><a href="./aboutus.html">About Us</a></li>
+            <li><a href="#contactus"  onclick="smoothScroll(event)">Contact Us</a></li>
+            <li><a href="./index.html">Logout</a></li>
+            <li><span id="user-name" style="color: #fff">John Doe</span></li>
+            <li><span id="date-time" style="color: #fff">May 1, 2023 12:00:00</span></li>
+        </ul>
+    </nav>
+  </div>
+  <div class="nav-laptop">
+    <nav>
+      <a href="home.html"><img src="./images/mainlogo.png" alt="" class="mainlogo"></a>
+      <div class="menu-links">
+        <ul>
+          <li><a href="#menu" onclick="smoothScroll(event)">Menu</a></li>
+          <li><a href="./reservation.html">Reservations</a></li>
+          <li><a href="./aboutus.html">About Us</a></li>
+          <li><a href="#contactus" onclick="smoothScroll(event)">Contact Us</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="user-info">
+          <div id="user-icon">
+            <img src="./images/user-icon.png" alt="User Icon">
+            <div class="info">
+              <span id="user-name-laptop" style="color: #000;">John Doe</span><br>
+              <span id="laptop-date-time" style="color: #666;">May 1, 2023 12:00:00</span>
+              <a href="./index.html" id="logout-button">Logout</a>
+            </div>
+          </div>
         </div>
       </div>
-    <script src="./home.js"></script>
+    </nav>
+  </div>  
+    <div id="pos">
+      <div>
+        <form action="" id="paymentform">
+          <label for="cardHolder">Card Holder:
+            <br><input type="text" id="cardHolder" placeholder="Card Holder" required>
+          </label>
+          <label for="cardID">Card ID:
+            <br><input type="text" id="cardID" placeholder="Enter Card ID" maxlength="16" required>
+          </label>
+          <label for="expireDate">Expiration Date:
+            <br><input type="text" id="expireDate" placeholder="Enter Expiration Date" maxlength="5"required>
+          </label>
+          <label for="cvv">CVV:
+            <br><input type="text" id="cvv" placeholder="CVV" maxlength="3" required>
+          </label>
+          <button type="submit" id="completion">Complete Reservation</button>
+        </form>
+        <div id="paid">
+        </div>
+      </div>      
+    </div>
+    <script src="./checkout.js"></script>
+    <script src="./reservation.js"></script>
 </body>
 </html>
