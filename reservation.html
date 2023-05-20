@@ -10,7 +10,7 @@
 </head>
 <body style="background-color: #ffa500; padding-bottom: 5em;">
     <div class="nav-phone">
-        <nav style="background: rgba(250, 210, 135, 0.9);">
+        <nav style="background: rgba(250, 210, 135, 0.9); margin-right:1em;">
             <a href="home.html"><img src="./images/mainlogo.png" alt="" class="mainlogo"></a>
             <div class="hamburger-menu">
                 <div class="bar"></div>
@@ -43,8 +43,8 @@
                     <div id="user-icon">
                       <img src="./images/user-icon.png" alt="User Icon">
                       <div class="info">
-                        <span id="user-name">John Doe</span>
-                        <span id="date-time">May 1, 2023 12:00:00</span>
+                        <span id="user-name-laptop">John Doe</span>
+                        <span id="laptop-date-time">May 1, 2023 12:00:00</span>
                         <a href="./index.html" id="logout-button">Logout</a>
                       </div>
                     </div>
@@ -95,7 +95,7 @@
             </div>
           </div>
           <div class="seafood-res">
-            <h3>Seafood</h4>
+            <h3>Seafood</h3>
             <div style="background-image: url('./images/grillsalamon.jpg');">
               <h4>Grilled Atlantic Salmon</h4>
               <div class="quantity">
@@ -134,7 +134,7 @@
             </div>
           </div>
           <div class="appetizers-res">
-              <h3>Appetizers</h4>
+              <h3>Appetizers</h3>
               <div style="background-image: url('./images/shrimpcocktail.jpg');">
                 <h4>Classic Shrimp Cocktail</h4>
                 <div class="quantity">
@@ -272,13 +272,21 @@
     <div id="reservation">
         <div id="cart"></div>
         <div>
-            <form action="./checkout.html">
+            <form action="./checkout.html" id="reserv">
               <label for="date">Date:</label>
               <input type="date" id="date" name="date">
               <label for="time">Time:</label>
               <input type="time" id="time" name="time">
               <button type="submit" id="checkout">Checkout</button>
             </form>
+        </div>
+        <div id="track">
+          <form action="" id="tracking">
+            <label for="toTrack">Track your reservation here: 
+              <input type="text" id="toTrack" placeholder="Enter Your ID">
+            </label>
+            <button id="track-btn">Track</button>
+          </form>
         </div>
     </div>
     <script src="./home.js"></script>

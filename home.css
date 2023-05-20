@@ -302,7 +302,7 @@ nav {
   text-decoration: none;
 }
 
-form {
+#contactus-form {
   background-image: url("./images/carbon.jpg");
   padding: 4em 15vw;
   border-radius: 20px;
@@ -311,40 +311,46 @@ form {
   font-weight: 600;
   z-index: -100;
   margin-left: 1em;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
+  height: 27em;
 }
 
-form label {
-  line-height: 2;
-}
-
-form input {
-  padding: 0.5em 7vw 0.5em 1vw;
+#contactus-form input {
+  padding: 0.5em 7vw 0.5em 15vw;
   border-radius: 20px;
   border: none; 
 }
 
-form input:hover {
-  padding: 0.6em 8vw 0.6em 2vw;
+#contactus-form input:hover {
+  transform: scale(1.1);
   transition: all 0.5s ease-in-out;
 }
 
-form textarea {
+#contactus-form textarea {
   border-radius: 10px;
   height: 5em;
-  padding: 1em 8vw 1em 1vw;
+  padding: 1em 8vw 7em 1vw;
 }
 
 #submit {
   font-weight: 600;
   padding: 0.5em 3vw 0.5em 3vw;
   cursor: pointer;
+  border: none;
+  border-radius: 30px;
+  width: 30vw;
+  align-self: center;
+  font-weight: 600;
 }
 
 #submit:hover {
-  padding: 0.6em 4vw 0.6em 4vw;
+  transform: scale(1.1);
   transition: all 0.5s ease-in-out;
-  background-color: #2c2b2b;
-  color: #fff;
+  background-color: cyan;
+  color: #000;
 }
 
 /*Reserve page styling*/
@@ -435,25 +441,34 @@ form textarea {
   border-radius: 20px;
 }
 
-#reservation form {
-  width: 66vw;
+#reservation #reserv {
+  width: 95vw;
   display: flex;
   flex-direction: column;
   background: rgba(255, 255, 255, 0.5);
   color: #000;
-  margin-right: 1em;
+  height: 20em;
+  line-height: 3;
+  justify-content: center;
+  align-items: center;
+  font-weight: 600;
+  border-radius: 20px; 
 }
 
-#reservation form button {
+#reservation #reserv button {
   margin-top: 1em;
   padding: 0.5em 0 0.5em 0;
   border: none;
   border-radius: 15px;
   font-weight: 700;
+  margin-right: 5vw;
 }
 
 input[type="date"], input[type="time"], input[type="time"]{
-  width: 58vw;
+  width: 40vw;
+  padding: 0.5em 10vw;
+  border-radius: 50px;
+  border: none; 
 }
 
 #checkout {
@@ -463,6 +478,57 @@ input[type="date"], input[type="time"], input[type="time"]{
   background-color: rgb(19 19 19);
   backdrop-filter: blur(20px);
   color: #fff;
+}
+
+#contactus-status{
+  display: flex;
+  justify-content: center;
+  padding-top: 2em;
+}
+
+#contactus-status p {
+  background-color: green;
+  padding: 1em 3vw;
+  border-radius: 40px;
+  font-weight: 600;
+  color: #fff;
+  display: none;
+}
+
+#track {
+  width: 96vw;
+  height: 13em;
+  background: rgba(255, 255, 255, 0.5);
+  margin: 2em 0 0 0;
+  border-radius: 20px;
+  display: flex;
+  justify-content: center;
+}
+
+#tracking label {
+  height: 10em;
+  display: flex; 
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  font-weight: 600;
+}
+
+#tracking input {
+  padding: 0.5em 5vw;
+  border: none;
+  border-radius: 20px;
+}
+
+#tracking button {
+  border: none;
+  padding: 0.5em 6em;
+  border-radius: 20px;
+  font-weight: 600;
+  background-color: rgb(19 19 19);
+  color: #fff; 
+  margin-left: 1.5em;
+  
 }
 
 @media screen and (max-width: 627px) {
@@ -624,22 +690,34 @@ input[type="date"], input[type="time"], input[type="time"]{
 
   #reservation {
   flex-direction: row;
+  justify-content: space-around;
+  flex-wrap: wrap;
   }
-  #reservation form{
-    width: 34vw;
+  #reservation #reserv{
+    width: 15vw;
+    height: 10.5em;
   }
   #cart{
     height: 18.5em;
     margin-top: 1.8em;
-    width: 42.5vw;
-    margin-left: 1em
+    width: 30vw;
+    margin-left: 1em;
   }
   input[type="date"], input[type="time"]{
-    width: 26vw;
+    width: 11vw;
+    padding: 1em 9vw;
   }  
   #checkout {
   width: 20vw;
   cursor: pointer;
 }
+  #track {
+  height: 18.5em;
+  width: 30vw;
+  margin-bottom: 2em;
+}
+  #tracking button {
+    margin-left: 5em;
+  }
 }
 

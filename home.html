@@ -7,6 +7,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="home.css">
   <script src="https://kit.fontawesome.com/e57a989e5f.js" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/firebase/7.14.1-0/firebase.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/firebase/7.14.1-0/firebase-auth.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/firebase/7.14.1-0/firebase-database.js"></script>
   <title>Home</title>
 </head>
 
@@ -31,29 +34,29 @@
   </div>
   <div class="nav-laptop">
     <nav>
-        <a href="home.html"><img src="./images/mainlogo.png" alt="" class="mainlogo"></a>
-        <div class="menu-links">
-            <ul>
-                <li><a href="#menu" onclick="smoothScroll(event)">Menu</a></li>
-                <li><a href="./reservation.html">Reservations</a></li>
-                <li><a href="./aboutus.html">About Us</a></li>
-                <li><a href="#contactus" onclick="smoothScroll(event)">Contact Us</a></li>
-            </ul>
+      <a href="home.html"><img src="./images/mainlogo.png" alt="" class="mainlogo"></a>
+      <div class="menu-links">
+        <ul>
+          <li><a href="#menu" onclick="smoothScroll(event)">Menu</a></li>
+          <li><a href="./reservation.html">Reservations</a></li>
+          <li><a href="./aboutus.html">About Us</a></li>
+          <li><a href="#contactus" onclick="smoothScroll(event)">Contact Us</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="user-info">
+          <div id="user-icon">
+            <img src="./images/user-icon.png" alt="User Icon">
+            <div class="info">
+              <span id="user-name-laptop">John Doe</span><br>
+              <span id="laptop-date-time">May 1, 2023 12:00:00</span>
+              <a href="./index.html" id="logout-button">Logout</a>
+            </div>
+          </div>
         </div>
-        <div>    
-            <div class="user-info">
-                <div id="user-icon">
-                  <img src="./images/user-icon.png" alt="User Icon">
-                  <div class="info">
-                    <span id="user-name">John Doe</span>
-                    <span id="date-time">May 1, 2023 12:00:00</span>
-                    <a href="./index.html" id="logout-button">Logout</a>
-                  </div>
-                </div>
-            </div>              
-        </div>
+      </div>
     </nav>
-  </div>
+  </div>  
   <div id="introductory-plate"></div>
   <div class="quote">
     <p>At our restaurant, we understand the power of food as a symbol of love, and we strive to create dishes that not only taste delicious but also speak to the heart. Whether you're sharing a romantic meal with your partner, catching up with old friends, or enjoying a family gathering, we hope that every bite you take at our restaurant fills you with warmth, comfort, and joy.</p>
@@ -238,17 +241,20 @@ Closed Mondays
       </div>
     </div>
     <div>
-      <form action="contact.php" method="POST">
+      <form form action="" id="contactus-form">
         <label for="name">Name:</label><br>
         <input type="text" id="name" name="name" required><br><br>
         <label for="email">Email:</label><br>
-        <input type="email" id="email" name="email" required><br><br>
+        <input type="email" id="useremail" name="email" required><br><br>
         <label for="subject">Subject:</label><br>
         <input type="text" id="subject" name="subject" required><br><br>
         <label for="message">Message:</label><br>
         <textarea id="message" name="message" required></textarea><br><br>
-        <input type="submit" value="Submit" id="submit">
+        <button type="submit" id="submit">Submit</button>
       </form>
+      <div id="contactus-status">
+        <p id="p-stat">Sumitted Successfully!</p>
+      </div>
     </div>
   </div>
   <script src="home.js"></script>

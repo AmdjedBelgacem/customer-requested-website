@@ -6,33 +6,37 @@ hamburger.addEventListener("click", () => {
   menuItems.classList.toggle("active");
 });
 
-
 const userIcon = document.getElementById('user-icon');
 const userInfo = document.querySelector('.user-info .info');
 const userName = document.getElementById('user-name');
+const userNameLaptop = document.getElementById('user-name-laptop');
 const dateTime = document.getElementById('date-time');
+const lapDateTime = document.getElementById('laptop-date-time');
 const logoutButton = document.getElementById('logout-button');
 
 function getCurrentDateTime() {
   const now = new Date();
-  const options = { 
-    year: 'numeric', 
-    month: 'long', 
-    day: 'numeric', 
-    hour: 'numeric', 
-    minute: 'numeric', 
-    second: 'numeric' 
+  const options = {
+    year: 'numeric',
+    month: 'long',
+    day: 'numeric',
+    hour: 'numeric',
+    minute: 'numeric',
+    second: 'numeric'
   };
   return now.toLocaleString('en-US', options);
 }
 
-function updateUserInfo() {
-  userName.textContent = 'John Doe'; 
+function updateUserInfo(firstname, lastname) {
+  userName.textContent = firstname + ' ' + lastname;
+  userNameLaptop.textContent = firstname + ' ' + lastname;
   dateTime.textContent = getCurrentDateTime();
+  lapDateTime.textContent = getCurrentDateTime();
 }
 
 setInterval(() => {
   dateTime.textContent = getCurrentDateTime();
+  lapDateTime.textContent = getCurrentDateTime();
 }, 1000);
 
 userIcon.addEventListener('click', () => {
@@ -43,26 +47,115 @@ logoutButton.addEventListener('click', () => {
   alert('Logged out successfully!');
 });
 
-var minusBtns = document.querySelectorAll('.minus-btn');
-var plusBtns = document.querySelectorAll('.plus-btn');
-minusBtns.forEach(function(btn) {
-  btn.addEventListener('click', function() {
-    var input = this.nextElementSibling;
-    var value = parseInt(input.value);
-    if (value > 1) {
-      input.value = value - 1;
+
+const firebaseConfig = {
+  apiKey: "AIzaSyCYBZb5OjXixzYT0ZHAPtPRORUnf7r5FT8",
+  authDomain: "lastsummer-35f2f.firebaseapp.com",
+  databaseURL: "https://lastsummer-35f2f-default-rtdb.firebaseio.com",
+  projectId: "lastsummer-35f2f",
+  storageBucket: "lastsummer-35f2f.appspot.com",
+  messagingSenderId: "281508440300",
+  appId: "1:281508440300:web:ef225293ce81d3c014ddc9"
+};
+
+firebase.initializeApp(firebaseConfig);
+
+const userTableDB = firebase.database().ref('usersTable');
+
+userTableDB.once('value', (snapshot) => {
+  const users = snapshot.val();
+
+  for (const userId in users) {
+    const user = users[userId];
+
+    if (user.state === 'active') {
+      updateUserInfo(user.firstname, user.lastname);
+    }
+  }
+});
+
+
+function logoutUser() {
+  userTableDB.once('value', (snapshot) => {
+    const users = snapshot.val();
+
+    for (const userId in users) {
+      const user = users[userId];
+
+      if (user.state === 'active') {
+        userTableDB.child(userId).update({ state: '' });
+      }
     }
   });
-});
-plusBtns.forEach(function(btn) {
-  btn.addEventListener('click', function() {
-    var input = this.previousElementSibling;
-    var value = parseInt(input.value);
-    if (value < 10) {
-      input.value = value + 1;
-    }
+  alert('Logged out successfully!');
+}
+
+logoutButton.addEventListener('click', logoutUser); 
+
+
+var contactusID = 0;
+var state ="";
+var contactTableDB = firebase.database().ref('contactTable')
+
+document.getElementById('contactus-form').addEventListener('submit', contactusForm);
+
+function contactusForm(e) {
+  e.preventDefault();
+
+  var name = getElementVal('name');
+  var useremail = getElementVal('useremail');
+  var subject = getElementVal('subject');
+  var message = getElementVal('message');
+
+  saveUser(name, useremail, subject, message);
+  document.getElementById("p-stat").style.display = "block";
+  setTimeout(()=>{
+    document.getElementById("p-stat").style.display = "none";
+    document.getElementById("p-stat").style.transition = "all 0.3s ease-in-out";
+  }, 3000);
+  document.getElementById("contactus-form").reset();
+}
+
+const saveUser = (name, useremail, subject, message) => {
+  var newContactUsForm = contactTableDB.push();
+  var newcontactusID = ++contactusID; 
+  newContactUsForm.set({
+    id: newcontactusID,
+    name: name,
+    useremail: useremail,
+    subject: subject,
+    message: message
   });
+};
+
+const getElementVal = (id) => {
+  return document.getElementById(id).value;
+};
+
+
+//-------------------------------------
+document.querySelectorAll('.quantity').forEach(form => {
+  const input = form.querySelector('input');
+  const plusBtn = form.querySelector('.plus-btn');
+  const minusBtn = form.querySelector('.minus-btn');
+
+  plusBtn.addEventListener('click', () => incrementValue(input));
+  minusBtn.addEventListener('click', () => decrementValue(input));
+
+  function incrementValue(input) {
+    if (input.value < 10) {
+      input.value++;
+    }
+  }
+
+  function decrementValue(input) {
+    if (input.value > 1) {
+      input.value--;
+    }
+  }
 });
+
+
 function smoothScroll(event) {
   event.preventDefault();
   
@@ -76,47 +169,3 @@ function smoothScroll(event) {
     });
   }
 }
-
-/*Database*/
-var form = document.querySelector('.signup-form');
-
-        // Add form submit event listener
-        form.addEventListener('submit', function(event) {
-            event.preventDefault(); // Prevent form submission
-
-            // Get form input values
-            var firstname = form.firstname.value;
-            var lastname = form.lastname.value;
-            var phonenumber = form.phonenumber.value;
-            var email = form.email.value;
-            var password = form.password.value;
-
-            // Create an object with the form data
-            var formData = {
-                firstname: firstname,
-                lastname: lastname,
-                phonenumber: phonenumber,
-                email: email,
-                password: password
-            };
-
-            // Store form data in localStorage
-            localStorage.setItem('formData', JSON.stringify(formData));
-
-            // Display a success message or redirect to another page
-            alert('Form data stored successfully!');
-        });
-
-        // Retrieve the stored form data from localStorage
-        var storedData = localStorage.getItem('formData');
-
-        // Check if any data is stored
-        if (storedData) {
-            // Parse the JSON string back into an object
-            var formData = JSON.parse(storedData);
-
-            // Display the form data in the console
-            console.log(formData);
-        } else {
-            console.log('No data found in localStorage.');
-        }
