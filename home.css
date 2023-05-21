@@ -98,11 +98,11 @@ nav {
 }
 
 #introductory-plate {
-  background: url('./images/intropic.jpg');
+  background: url('./images/intropic1.jpg');
   height: 100vh;
   width: 100%;
   background-repeat: no-repeat;
-  background-size: cover;
+  background-size: 100% 110%;
 }
 
 .quote {
@@ -123,10 +123,18 @@ nav {
   font-size: 1.2em;
 }
 
+#menu {
+  background: url('./images/menubackground-phone.jpeg');
+}
+
 #menu, #feedback{
   color: #fff;
-  padding: 15em 5vw 5em 5vw;
+  padding: 10em 8vw 5em 8vw;
   font-family: 'Playfair Display', serif;
+}
+
+.categories > h3 {
+  border-bottom: 1px solid;
 }
 
 .steaks, .seafood, .appetizers, .salads, .deserts{
@@ -135,13 +143,7 @@ nav {
   gap: 10px;
   justify-items: center;
   align-items: center;
-}
-
-.steaks, .seafood, .appetizers, .salads, .deserts{
   width: 80vw;
-}
-
-.steaks, .seafood, .appetizers, .salads, .deserts{
   padding-left: 5vw;
 }
 
@@ -163,24 +165,23 @@ nav {
   grid-template-columns: 1fr;
   grid-template-rows: repeat(20, 25em);
   grid-gap: 5px;
-  padding-top: 0.3em;
+  padding: 0.3em;
 }
 
 #gallery div {
   background-repeat: no-repeat;
   background-size: 100% 100%;
   background-position: center center;
-}
-
-#gallery div:hover {
-  background-size: 105% 105%;
-  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 #gallery div p {
-  padding: 1em;
-  color: #000000;
-  font-weight: 600;
+  color: #fff;
+  font-weight: 800;
+  font-size: 1.5em;
+  display: none;
 }
 
 #gallery div:nth-child(1){
@@ -283,28 +284,42 @@ nav {
   grid-area: tiramisu;
 }
 
+#gallery div:hover{
+  background-size: 100% 100%;
+  cursor: pointer; 
+  background-image: url('./images/blur.jpg');
+}
+
+#gallery div:hover p {
+  display:block;
+}
+
 #contactus{
-  background-color: #fff;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   padding-bottom: 10em;
+  padding: 5em;
+  background-color: #fff;
 }
+
+
 
 .info {
   font-family: 'Montserrat', sans-serif;
   font-weight: 100;
-  color: #242424;
 }
 
 .info a {
   text-decoration: none;
+  font-weight: 800;
 }
 
 #contactus-form {
-  background-image: url("./images/carbon.jpg");
-  padding: 4em 15vw;
+  background: rgba(0,0,0,0.9);
+  backdrop-filter: blur(50px); 
+  padding: 4em 12vw;
   border-radius: 20px;
   backdrop-filter: blur(20px);
   color: #fff;
@@ -320,7 +335,7 @@ nav {
 }
 
 #contactus-form input {
-  padding: 0.5em 7vw 0.5em 15vw;
+  padding: 0.5em 15vw 0.5em 1vw;
   border-radius: 20px;
   border: none; 
 }
@@ -342,9 +357,9 @@ nav {
   cursor: pointer;
   border: none;
   border-radius: 30px;
-  width: 30vw;
+  width: 14em;
   align-self: center;
-  font-weight: 600;
+  font-weight: 700;
 }
 
 #submit:hover {
@@ -385,6 +400,8 @@ nav {
   background-size: 100% 100%;
   border-radius: 30px;
   padding-bottom: 2em;
+  font-size: 1.5em;
+  color: #000;
 }
 
 .quantity button {
@@ -654,7 +671,18 @@ input[type="date"], input[type="time"], input[type="time"]{
     font-size: 1.8em;
     width: 65vh;
   }
-  
+
+  #menu{
+    background: url('./images/menubackground.jpg');
+  }
+
+  #menu h2{
+    background-color: rgba(255, 165, 0, 0.5);
+    backdrop-filter: blur(20px);
+    width: 5em;
+    padding:0.5em;
+    border-radius: 30px 0 30px 0;
+  }
   .steaks, .seafood, .appetizers, .salads, .deserts{
     grid-template: repeat(2, 1fr)/repeat(2, 1fr);
     justify-items: center;
@@ -682,7 +710,7 @@ input[type="date"], input[type="time"], input[type="time"]{
     "cheesecake cheesecake lavacake"
     "cheesecake cheesecake brulee"
     "cheesecake cheesecake tiramisu";
-    grid-template-columns: repeat(3, 33vw);
+    grid-template-columns: repeat(3, 1fr);
     grid-template-rows: repeat(15, 15em);
   }
   #contactus {
