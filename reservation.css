@@ -1,0 +1,418 @@
+body, html {
+  margin: 0;
+  font-family: sans-serif;
+  background-color: rgba(23,22,22, 1);
+}
+
+.mainlogo {
+  height: 2em;
+  width: 2em;
+}
+
+.nav-laptop {
+  display: none;
+}
+
+.nav-phone {
+  display: block;
+}
+
+nav {
+  position: fixed;
+  width: 90vw;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 4em;
+  left: 0.2em;
+  padding: 0 4vw;
+  background: linear-gradient(to right, rgba(255, 255, 255, 0.8), rgba(160, 152, 156, 0.8));
+  backdrop-filter: blur(10px);
+  z-index: 200;
+  top: 0.5em;
+  border-radius: 100em;
+}
+
+
+.hamburger-menu {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 1em;
+  cursor: pointer;
+  transition: all 0.5s ease-in-out;
+  margin-right: 5vw;
+}
+
+.bar {
+  width: 24px;
+  height: 3px;
+  background-color: #333;
+  transition: all 0.5s ease-in-out;
+}
+
+.menu-items {
+  position: absolute;
+  top: 3em;
+  right: -115%;
+  width: 85vw;
+  height: 20em;
+  background: linear-gradient(to right, rgba(255, 255, 255, 0.8), rgba(160, 152, 156, 0.8));
+  backdrop-filter: blur(10px);
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  transition: all 0.5s ease-in-out;
+  margin: 2em 2vw 0 0;
+  border-radius: 30px;
+}
+
+.menu-items a {
+  text-decoration: none;
+  color: #000;
+  font-weight: 800;
+}
+
+.menu-items li:nth-child(4) a {
+  background-color: red;
+  text-align: center;
+  padding: 0.35em 20vw 0.35em 20vw;
+  margin-right: 5vw;
+  border-radius: 30px;
+  color: #fff;
+}
+
+.menu-items li:hover {
+  transform: scale(1.05);
+  background-color: rgba(255, 255, 255, 0.2);
+  padding: 1em 2em;
+  border-radius: 25px;
+  transition: all 0.3s ease-in-out;
+  backdrop-filter: blur(10px);
+}
+
+.menu-items.active {
+  right: 0;
+}
+
+#menu-reserve {
+  padding: 10em 1vw 0 1vw;
+  color: #000;
+  margin-bottom: 2em;
+  margin-left:1vw; 
+}
+
+#menu-reserve  .categories {
+  display: grid;
+  grid-template: repeat(3, 1fr)/repeat(2, 1fr);
+  justify-items: center;
+  align-items: center;
+  background-color: rgba(255, 255, 255, 0.5);
+  backdrop-filter: blur(10px);
+  border-radius: 20px;
+  padding-bottom: 5em;
+}
+
+.steaks-res > div, .seafood-res > div, .appetizers-res > div, .salads-res > div, .deserts-res > div {
+  box-shadow: 0 10px 20px rgba(255 165 0.5);
+  height: 15em;
+  width: 40vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1em;
+  background-size: 100% 100%;
+  border-radius: 30px;
+  padding-bottom: 2em;
+  color: #000;
+  text-align: center;
+}
+
+.quantity button {
+  border-radius: 30px;
+  border: none;
+  background-color: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(10px);
+  color: #fff;
+  padding: 0.6em 1em;
+  cursor: pointer;
+  font-weight: 700;
+} 
+
+.quantity input {
+  border-radius: 30px;
+  border: none;
+  padding: 0.5em 2vw 0.5em 3vw;
+  text-align: center;
+  font-weight: 700;
+  background-color: rgba(255, 255, 255, 0.7);
+  color: #000;
+}
+
+.add-to-cart-btn {
+  border-radius: 30px;
+  border: none;
+  background-color: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(10px);
+  color: #fff;
+  padding: 0.6em 1em;
+  cursor: pointer;
+  margin-top: 0.5em;
+  font-weight: 700;
+}
+
+.sides {
+  order: 6;
+  align-self: self-start;
+  grid-row: 4;
+  margin-left: 5vw;
+}
+
+#reservation {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+#cart {
+  width: 90%;
+  height: 10em;
+  background: rgba(255, 255, 255, 0.5);
+  margin-bottom: 2em;
+  border-radius: 20px;
+  padding: 1em;
+}
+
+#reservation #reserv {
+  width: 95vw;
+  display: flex;
+  flex-direction: column;
+  background: rgba(255, 255, 255, 0.5);
+  color: #000;
+  height: 20em;
+  line-height: 3;
+  justify-content: center;
+  align-items: center;
+  font-weight: 600;
+  border-radius: 20px;
+}
+
+#reservation #reserv button {
+  margin-top: 1em;
+  padding: 0.5em 0 0.5em 0;
+  border: none;
+  border-radius: 15px;
+  font-weight: 700;
+  margin-right: 5vw;
+}
+
+input[type="date"], input[type="time"], input[type="time"]{
+  width: 40vw;
+  padding: 0.5em 10vw;
+  border-radius: 50px;
+  border: none; 
+}
+
+#checkout {
+  margin-top: 1em;
+  width: 50vw;
+  margin-left: 7vw;
+  background-color: rgb(19 19 19);
+  backdrop-filter: blur(20px);
+  color: #fff;
+}
+
+#track {
+  width: 96vw;
+  height: 15em;
+  background: rgba(255, 255, 255, 0.5);
+  margin: 2em 0 0 0;
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+#track p {
+  display: none;
+}
+#tracking label {
+  height: 10em;
+  display: flex; 
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  font-weight: 600;
+}
+
+#tracking input {
+  padding: 1em 10%;
+  border: none;
+  border-radius: 20px;
+}
+
+#tracking button {
+  border: none;
+  padding: 0.5em 42%;
+  border-radius: 20px;
+  font-weight: 600;
+  background-color: rgb(19 19 19);
+  color: #fff; 
+}
+
+#green {
+  background-color: rgba(0 ,255,0, 0.8);
+  padding: 1em 8vw;
+  border-radius: 40px;
+  color: #fff;
+  display: none;
+}
+#red {
+  background-color: rgba(255 ,0,0, 0.8);
+  padding: 1em 8vw;
+  border-radius: 40px;
+  color: #fff;
+  display: none;
+}
+
+
+@media screen and (min-width: 769px) {
+  .nav-phone {
+    display: none;
+  }
+  .nav-laptop {
+    display: block;
+  }
+  .user-info {
+    position: relative;
+  } 
+  #user-icon {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+  }
+  #user-icon img {
+    height: 2em;
+    width: 2em;
+    padding-right: 2.5em;
+  }
+  #user-icon .info {
+    position: absolute;
+    top: -10em;
+    left: -6em;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    opacity: 0;
+    transition: all 0.5s ease-in-out;
+    width: 8em;
+    text-align: center;
+  }
+  #user-icon:hover .info {
+    top: 60px;
+    opacity: 1;
+  }
+  #user-name {
+    display: block;
+    font-size: 16px;
+    font-weight: bold;
+    margin-bottom: 5px;
+  }
+  #date-time {
+    display: block;
+    font-size: 14px;
+    color: #666;
+    margin-bottom: 5px;
+  }
+  #logout-button {
+    display: block;
+    margin-top: 10px;
+    background-color: #f00;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 5px 10px;
+    cursor: pointer;
+    text-decoration: none;
+  }
+  #logout-button:hover {
+    background-color: #d00;
+  }    
+  nav {
+    width: 88vw;
+    height: 3.5em;
+    left:2vw; 
+  }
+
+  .menu-links ul {
+    display: flex;
+    justify-content: space-between;
+    width: 65vw;   
+  }
+
+  .menu-links li {
+    list-style: none;
+    padding: 1em 2em;
+    cursor: pointer;
+    border-radius: 30px;
+    font-size: 0.8em;
+  }
+
+  .menu-links li:hover {
+    background-color: rgba(255,255,255, 0.7);
+    transition: all 0.5s ease-in-out;
+  }
+
+  .menu-links a {
+    text-decoration: none;
+    color: #000;
+    font-weight: 900;
+  }
+  #reservation {
+  flex-direction: row;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  }
+  #reservation #reserv{
+    width: 100%;
+    height: 18.5em;
+    
+  }
+  #cart{
+    height: 16.5em;
+    margin-top: 1.8em;
+    width: 30%;
+    margin-left: 1em;
+  }
+  input[type="date"], input[type="time"]{
+    width: 11vw;
+    padding: 1em 9vw;
+  }  
+  #checkout {
+      width: 20vw;
+      cursor: pointer;
+  }
+  #track {
+      height: 18.5em;
+      width: 30vw;
+      margin-bottom: 2em;
+  }
+  #contactus-form{
+    max-width: 15em;
+  }
+
+  #menu-reserve  .categories {
+      grid-template: repeat(2, 1fr)/repeat(3, 1fr);
+      gap: 20px;
+  }
+      
+  .steaks-res > div, .seafood-res > div, .appetizers-res > div, .salads-res > div, .deserts-res > div {
+    width: 18em;
+  }    
+}  

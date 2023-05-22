@@ -4,7 +4,10 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="aboutus.css">
+    <link rel="stylesheet" href="contactus.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/firebase/7.14.1-0/firebase.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/firebase/7.14.1-0/firebase-auth.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/firebase/7.14.1-0/firebase-database.js"></script>
     <title>Document</title>
 </head>
 <body>
@@ -19,7 +22,7 @@
             <ul class="menu-items">
                 <li><a href="./reservation.html">Reservations</a></li>
                 <li><a href="./aboutus.html">About Us</a></li>
-                <li><a href="#contactus" onclick="smoothScroll(event)">Contact Us</a></li>
+                <li><a href="#contactus">Contact Us</a></li>
                 <li><a href="./index.html">Logout</a></li>
                 <li><span id="user-name" style="color:#fff;">John Doe</span></li>
                 <li><span id="date-time" style="color:#fff;">May 1, 2023 12:00:00</span></li>
@@ -42,7 +45,7 @@
                     <div id="user-icon">
                       <img src="./images/user-icon.png" alt="User Icon">
                       <div class="info">
-                        <span id="user-name-laptop" style="color: #000;">John Doe</span>
+                        <span id="user-name-laptop" style="color: #000;">John Doe</span><br>
                         <span id="laptop-date-time" style="color: #666;">May 1, 2023 12:00:00</span>
                         <a href="#" id="logout-button">Logout</a>
                       </div>
@@ -52,7 +55,7 @@
         </nav>
       </div>
       <div id="contactus">
-        <div class="info">
+        <div class="contact-info">
           <div>
             <h2>Location</h2>
             <pre>
@@ -95,6 +98,6 @@
           </div>
         </div>        
       </div>
-    <script src="./home.js"></script>
+    <script src="./contactus.js"></script>
 </body>
 </html>

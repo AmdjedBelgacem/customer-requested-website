@@ -1,4 +1,4 @@
-body {
+body, html {
   margin: 0;
   font-family: sans-serif;
   background-color: rgba(23,22,22, 1);
@@ -369,136 +369,6 @@ nav {
   color: #000;
 }
 
-/*Reserve page styling*/
-#menu-reserve {
-  padding: 10em 1vw 0 1vw;
-  color: #000;
-  margin-bottom: 2em;
-  margin-left:1vw; 
-}
-
-#menu-reserve  .categories {
-  display: grid;
-  grid-template: repeat(3, 1fr)/repeat(2, 1fr);
-  justify-items: center;
-  align-items: center;
-  background-color: rgba(255, 255, 255, 0.5);
-  backdrop-filter: blur(10px);
-  border-radius: 20px;
-  padding-bottom: 5em;
-}
-
-.steaks-res > div, .seafood-res > div, .appetizers-res > div, .salads-res > div, .deserts-res > div {
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
-  height: 15em;
-  width: 40vw;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
-  align-items: center;
-  margin-bottom: 1em;
-  background-size: 100% 100%;
-  border-radius: 30px;
-  padding-bottom: 2em;
-  font-size: 1.5em;
-  color: #000;
-}
-
-.quantity button {
-  border-radius: 30px;
-  border: none;
-  background-color: rgba(0, 0, 0, 0.7);
-  backdrop-filter: blur(10px);
-  color: #fff;
-  padding: 0.6em 1em;
-  cursor: pointer;
-  font-weight: 700;
-} 
-
-.quantity input {
-  border-radius: 30px;
-  border: none;
-  padding: 0.5em 2vw 0.5em 3vw;
-  text-align: center;
-  font-weight: 700;
-  background-color: rgba(255, 255, 255, 0.7);
-  color: #000;
-}
-
-.add-to-cart-btn {
-  border-radius: 30px;
-  border: none;
-  background-color: rgba(0, 0, 0, 0.7);
-  backdrop-filter: blur(10px);
-  color: #fff;
-  padding: 0.6em 1em;
-  cursor: pointer;
-  margin-top: 0.5em;
-  font-weight: 700;
-}
-
-.sides {
-  order: 6;
-  align-self: self-start;
-  grid-row: 4;
-  margin-left: 5vw;
-}
-
-#reservation {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-
-#cart {
-  width: 90%;
-  height: 10em;
-  background: rgba(255, 255, 255, 0.5);
-  margin-bottom: 2em;
-  border-radius: 20px;
-  padding: 1em;
-}
-
-#reservation #reserv {
-  width: 95vw;
-  display: flex;
-  flex-direction: column;
-  background: rgba(255, 255, 255, 0.5);
-  color: #000;
-  height: 20em;
-  line-height: 3;
-  justify-content: center;
-  align-items: center;
-  font-weight: 600;
-  border-radius: 20px;
-}
-
-#reservation #reserv button {
-  margin-top: 1em;
-  padding: 0.5em 0 0.5em 0;
-  border: none;
-  border-radius: 15px;
-  font-weight: 700;
-  margin-right: 5vw;
-}
-
-input[type="date"], input[type="time"], input[type="time"]{
-  width: 40vw;
-  padding: 0.5em 10vw;
-  border-radius: 50px;
-  border: none; 
-}
-
-#checkout {
-  margin-top: 1em;
-  width: 50vw;
-  margin-left: 7vw;
-  background-color: rgb(19 19 19);
-  backdrop-filter: blur(20px);
-  color: #fff;
-}
-
 #contactus-status{
   display: flex;
   justify-content: center;
@@ -514,54 +384,6 @@ input[type="date"], input[type="time"], input[type="time"]{
   display: none;
 }
 
-#track {
-  width: 96vw;
-  height: 13em;
-  background: rgba(255, 255, 255, 0.5);
-  margin: 2em 0 0 0;
-  border-radius: 20px;
-  display: flex;
-  justify-content: center;
-}
-
-#tracking label {
-  height: 10em;
-  display: flex; 
-  flex-direction: column;
-  justify-content: space-around;
-  align-items: center;
-  font-weight: 600;
-}
-
-#tracking input {
-  padding: 1em 10%;
-  border: none;
-  border-radius: 20px;
-}
-
-#tracking button {
-  border: none;
-  padding: 0.5em 42%;
-  border-radius: 20px;
-  font-weight: 600;
-  background-color: rgb(19 19 19);
-  color: #fff; 
-}
-
-#green {
-  background-color: rgba(0 ,255,0, 0.8);
-  padding: 1em 8vw;
-  border-radius: 40px;
-  color: #fff;
-  display: none;
-}
-#red {
-  background-color: rgba(255 ,0,0, 0.8);
-  padding: 1em 8vw;
-  border-radius: 40px;
-  color: #fff;
-  display: none;
-}
 @media screen and (max-width: 627px) {
   nav {
     width: 90vw;
@@ -719,45 +541,5 @@ input[type="date"], input[type="time"], input[type="time"]{
     padding: 10em 10vw 10em 15vw;
   }
   
-  #menu-reserve  .categories {
-    grid-template: repeat(2, 1fr)/repeat(3, 1fr);
-  }
-
-  .steaks-res > div, .seafood-res > div, .appetizers-res > div, .salads-res > div, .deserts-res > div {
-    width: 20vw;
-  }
-
-  #reservation {
-  flex-direction: row;
-  justify-content: space-around;
-  flex-wrap: wrap;
-  }
-  #reservation #reserv{
-    width: 100%;
-    height: 18.5em;
-    
-  }
-  #cart{
-    height: 16.5em;
-    margin-top: 1.8em;
-    width: 30%;
-    margin-left: 1em;
-  }
-  input[type="date"], input[type="time"]{
-    width: 11vw;
-    padding: 1em 9vw;
-  }  
-  #checkout {
-  width: 20vw;
-  cursor: pointer;
-}
-  #track {
-  height: 18.5em;
-  width: 30vw;
-  margin-bottom: 2em;
-}
-  #contactus-form{
-    max-width: 15em;
-  }
 }
 

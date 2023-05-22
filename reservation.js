@@ -1,3 +1,97 @@
+const hamburger = document.querySelector(".hamburger-menu");
+const menuItems = document.querySelector(".menu-items");
+
+hamburger.addEventListener("click", () => {
+  hamburger.classList.toggle("active");
+  menuItems.classList.toggle("active");
+});
+
+const userIcon = document.getElementById('user-icon');
+const userInfo = document.querySelector('.user-info .info');
+const userName = document.getElementById('user-name');
+const userNameLaptop = document.getElementById('user-name-laptop');
+const dateTime = document.getElementById('date-time');
+const lapDateTime = document.getElementById('laptop-date-time');
+const logoutButton = document.getElementById('logout-button');
+
+function getCurrentDateTime() {
+  const now = new Date();
+  const options = {
+    year: 'numeric',
+    month: 'long',
+    day: 'numeric',
+    hour: 'numeric',
+    minute: 'numeric',
+    second: 'numeric'
+  };
+  return now.toLocaleString('en-US', options);
+}
+
+function updateUserInfo(firstname, lastname) {
+  userName.textContent = firstname + ' ' + lastname;
+  userNameLaptop.textContent = firstname + ' ' + lastname;
+  dateTime.textContent = getCurrentDateTime();
+  lapDateTime.textContent = getCurrentDateTime();
+}
+
+setInterval(() => {
+  dateTime.textContent = getCurrentDateTime();
+  lapDateTime.textContent = getCurrentDateTime();
+}, 1000);
+
+userIcon.addEventListener('click', () => {
+  userInfo.classList.toggle('visible');
+});
+
+logoutButton.addEventListener('click', () => {
+  alert('Logged out successfully!');
+});
+
+
+const firebaseConfig = {
+  apiKey: "AIzaSyCYBZb5OjXixzYT0ZHAPtPRORUnf7r5FT8",
+  authDomain: "lastsummer-35f2f.firebaseapp.com",
+  databaseURL: "https://lastsummer-35f2f-default-rtdb.firebaseio.com",
+  projectId: "lastsummer-35f2f",
+  storageBucket: "lastsummer-35f2f.appspot.com",
+  messagingSenderId: "281508440300",
+  appId: "1:281508440300:web:ef225293ce81d3c014ddc9"
+};
+
+firebase.initializeApp(firebaseConfig);
+
+const userTableDB = firebase.database().ref('usersTable');
+
+userTableDB.once('value', (snapshot) => {
+  const users = snapshot.val();
+
+  for (const userId in users) {
+    const user = users[userId];
+
+    if (user.state === 'active') {
+      updateUserInfo(user.firstname, user.lastname);
+    }
+  }
+});
+
+
+function logoutUser() {
+  userTableDB.once('value', (snapshot) => {
+    const users = snapshot.val();
+
+    for (const userId in users) {
+      const user = users[userId];
+
+      if (user.state === 'active') {
+        userTableDB.child(userId).update({ state: '' });
+      }
+    }
+  });
+  alert('Logged out successfully!');
+}
+
+logoutButton.addEventListener('click', logoutUser); 
+
 const addButton = document.getElementById("add-fillet");
 const ribeyeButton = document.getElementById("add-ribeye");
 const newyorkButton = document.getElementById("add-newyork");
@@ -198,3 +292,53 @@ const saveReservation = (date, time) => {
     state: "pending",
   });
 };
+
+
+const paymentTableDB = firebase.database().ref('paymentTable');
+let paymentID = 0;
+var fullName = "";
+var datetimeres = "";
+var stateValue, idValue;
+
+paymentTableDB.once('value', (snapshot) => {
+  const payments = snapshot.val();
+
+  for (const paymentId in payments) {
+    const payment = payments[paymentId];
+    stateValue = payment.state;
+    idValue = payment.id;
+  }
+});
+
+document.getElementById('track-btn').addEventListener('click', trackReservation);
+
+function trackReservation(e) {
+  e.preventDefault();
+
+  const toTrackInput = document.getElementById('toTrack');
+  const reservationIdToTrack = toTrackInput.value;
+
+  // Fetch reservation details from the database
+  reservationTableDB.once('value', (snapshot) => {
+    const reservations = snapshot.val();
+
+    for (const reservationId in reservations) {
+      const reservation = reservations[reservationId];
+
+      if (reservation.state === 'confirmed' && reservationId === reservationIdToTrack) {
+        const confirmationMsg = document.getElementById('confirmation-msg');
+        confirmationMsg.textContent = `Your reservation is confirmed for ${reservation.date} and ${reservation.time}`;
+        confirmationMsg.style.display = 'block';
+        return; // Exit the loop if the reservation is found
+      }
+    }
+
+    // If the reservation is not found or not confirmed
+    const confirmationMsg = document.getElementById('confirmation-msg');
+    confirmationMsg.textContent = 'No confirmed reservation found with the given ID.';
+    confirmationMsg.style.display = 'block';
+  });
+
+  // Reset the input field
+  toTrackInput.value = '';
+}
