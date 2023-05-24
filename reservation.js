@@ -255,6 +255,27 @@ const reservationTableDB = firebase.database().ref('reservationTable');
 const statusButton = document.getElementById("restatus");
 document.getElementById('reserv').addEventListener('submit', reservForm);
 
+// Retrieve the latest reservationID value from the Firebase database
+reservationTableDB.on('value', function(snapshot) {
+  var reservations = snapshot.val();
+  var latestReservation = null;
+
+  if (reservations) {
+    var ids = Object.keys(reservations);
+    var latestID = Math.max(...ids);
+
+    if (latestID !== -Infinity) {
+      latestReservation = reservations[latestID];
+      reservationID = latestReservation.id;
+    }
+  }
+
+  // Handle the case when no reservations exist yet
+  if (!latestReservation) {
+    reservationID = 0;
+  }
+});
+
 function reservForm(e) {
   e.preventDefault();
 
@@ -263,7 +284,7 @@ function reservForm(e) {
 
   saveReservation(date, time);
 
-  if (date !== undefined && time !== undefined && orderstring !== '') {
+  if (date !== '' && time !== '' && orderstring !== '') {
     document.getElementById("green").style.display = "block";
     setTimeout(() => {
       document.getElementById("green").style.display = "none";
@@ -294,51 +315,41 @@ const saveReservation = (date, time) => {
 };
 
 
-const paymentTableDB = firebase.database().ref('paymentTable');
-let paymentID = 0;
-var fullName = "";
-var datetimeres = "";
-var stateValue, idValue;
-
-paymentTableDB.once('value', (snapshot) => {
-  const payments = snapshot.val();
-
-  for (const paymentId in payments) {
-    const payment = payments[paymentId];
-    stateValue = payment.state;
-    idValue = payment.id;
-  }
-});
-
-document.getElementById('track-btn').addEventListener('click', trackReservation);
+document.getElementById('tracking').addEventListener('submit', trackReservation);
 
 function trackReservation(e) {
   e.preventDefault();
 
-  const toTrackInput = document.getElementById('toTrack');
-  const reservationIdToTrack = toTrackInput.value;
-
-  // Fetch reservation details from the database
-  reservationTableDB.once('value', (snapshot) => {
-    const reservations = snapshot.val();
-
-    for (const reservationId in reservations) {
-      const reservation = reservations[reservationId];
-
-      if (reservation.state === 'confirmed' && reservationId === reservationIdToTrack) {
-        const confirmationMsg = document.getElementById('confirmation-msg');
-        confirmationMsg.textContent = `Your reservation is confirmed for ${reservation.date} and ${reservation.time}`;
-        confirmationMsg.style.display = 'block';
-        return; // Exit the loop if the reservation is found
-      }
-    }
-
-    // If the reservation is not found or not confirmed
-    const confirmationMsg = document.getElementById('confirmation-msg');
-    confirmationMsg.textContent = 'No confirmed reservation found with the given ID.';
-    confirmationMsg.style.display = 'block';
-  });
-
-  // Reset the input field
-  toTrackInput.value = '';
+  var id = document.getElementById('toTrack').value;
+  retrieveReservation(id);
 }
+
+const retrieveReservation = (id) => {
+  reservationTableDB.once('value', function(snapshot) {
+    snapshot.forEach(function(childSnapshot) {
+      var reservation = childSnapshot.val();
+
+      if (reservation.id == id) {
+        if (reservation.state === 'confirmed') {
+          var date = reservation.date;
+          var time = reservation.time;
+          var confirmationMsg = `Your reservation is confirmed for ${date} at ${time}.`;
+          setTimeout(()=>{
+            document.getElementById('confirmation-msg').textContent = confirmationMsg;
+            document.getElementById('confirmation-msg').style.display = 'block';
+            document.getElementById("confirmation-msg").style.transition = "all 0.3s ease-in-out";
+          }, 3000);
+        } else if (reservation.state === 'pending') {
+          setTimeout(()=>{
+            document.getElementById('confirmation-msg').textContent = 'It is still pending, you will be redirected to pay';
+            document.getElementById('confirmation-msg').style.display = 'block';
+            document.getElementById("confirmation-msg").style.transition = "all 0.3s ease-in-out";
+          }, 3000);
+          window.location.href = './checkout.html';
+        }
+        return ; 
+      }
+    });
+  });
+};
+

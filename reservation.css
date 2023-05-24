@@ -1,7 +1,7 @@
 body, html {
   margin: 0;
   font-family: sans-serif;
-  background-color: rgba(23,22,22, 1);
+  background: linear-gradient(to bottom, #fceabb, #f8b500);
 }
 
 .mainlogo {
@@ -116,7 +116,7 @@ nav {
 }
 
 .steaks-res > div, .seafood-res > div, .appetizers-res > div, .salads-res > div, .deserts-res > div {
-  box-shadow: 0 10px 20px rgba(255 165 0.5);
+  box-shadow: 0 10px 20px rgb(215 168 81);
   height: 15em;
   width: 40vw;
   display: flex;
@@ -127,8 +127,15 @@ nav {
   background-size: 100% 100%;
   border-radius: 30px;
   padding-bottom: 2em;
-  color: #000;
+  color: #fff;
   text-align: center;
+}
+
+.steaks-res  h4, .seafood-res  h4, .appetizers-res h4, .salads-res h4, .deserts-res h4 {
+  background-color: rgb(230 126 20 / 70%);
+  backdrop-filter: blur(10px);
+  padding: 1em;
+  border-radius: 30px;
 }
 
 .quantity button {
@@ -155,10 +162,10 @@ nav {
 .add-to-cart-btn {
   border-radius: 30px;
   border: none;
-  background-color: rgba(0, 0, 0, 0.7);
+  background-color: rgba(173 216 230 / 70%);
   backdrop-filter: blur(10px);
   color: #fff;
-  padding: 0.6em 1em;
+  padding: 1em 1.8em;
   cursor: pointer;
   margin-top: 0.5em;
   font-weight: 700;

@@ -59,26 +59,12 @@ const firebaseConfig = {
 
 firebase.initializeApp(firebaseConfig);
 
+const reservationTableDB = firebase.database().ref('reservationTable');
 const paymentTableDB = firebase.database().ref('paymentTable');
 let paymentID = 0;
-var fullName = "";
-var datetimeres = "";
-const userTableDB = firebase.database().ref('usersTable');
-
-userTableDB.once('value', (snapshot) => {
-  const users = snapshot.val();
-
-  for (const userId in users) {
-    const user = users[userId];
-
-    if (user.state === 'active') {
-      updateUserInfo(user.firstname, user.lastname);
-      fullName = `${user.firstname} ${user.lastname}` 
-    }
-  }
-});
-
-const reservationTableDB = firebase.database().ref('reservationTable');
+let fullName = "";
+let datetimeres = "";
+let reservationID = ""; 
 
 reservationTableDB.once('value', (snapshot) => {
   const reservations = snapshot.val();
@@ -87,10 +73,12 @@ reservationTableDB.once('value', (snapshot) => {
     const resapi = reservations[resapt];
 
     if (resapi.state === 'pending') {
-      datetimeres = `${resapi.date} ${resapi.time}`; 
+      datetimeres = `${resapi.date} ${resapi.time}`;
+      reservationID = resapt; 
     }
   }
 });
+
 
 document.getElementById('paymentform').addEventListener('submit', paymentForm);
 
@@ -105,13 +93,18 @@ function paymentForm(e) {
   if (cardID.length == 16 && isValidExpireDate(expireDate) && cvv.length === 3) {
     userPayment(cardHolder, cardID, expireDate, cvv);
     var successMessage = document.createElement('p');
-    successMessage.textContent = `Glad to have you at ${datetimeres} Dear ${fullName}`;
+    successMessage.textContent = `Glad to have you at ${datetimeres}`;
     document.getElementById('paid').appendChild(successMessage);
-    resapi.state = 'confirmed';;
+    updateReservationState(reservationID); 
   } else {
     alert("Something is wrong");
   }
 }
+
+const updateReservationState = (reservationID) => {
+  const reservationRef = reservationTableDB.child(reservationID);
+  reservationRef.update({ state: 'confirmed' });
+};
 
 const isValidExpireDate = (expireDate) => {
   const dateRegex = /^(0[1-9]|1[0-2])\/(2[4-9]|[3-9][0-9])$/;
@@ -120,7 +113,7 @@ const isValidExpireDate = (expireDate) => {
 
 const userPayment = (cardHolder, cardID, expireDate, cvv) => {
   const newPaymentForm = paymentTableDB.push();
-  const newPaymentID = ++paymentID; 
+  const newPaymentID = ++paymentID;
   newPaymentForm.set({
     id: newPaymentID,
     reservationOwner: fullName,

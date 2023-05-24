@@ -1,7 +1,7 @@
 body, html {
   margin: 0;
   font-family: sans-serif;
-  background-color: rgba(23,22,22, 1);
+  background: linear-gradient(to bottom, #fceabb, #f8b500);
 }
 
 .mainlogo {
