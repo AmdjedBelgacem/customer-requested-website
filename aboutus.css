@@ -4,7 +4,7 @@ body {
   margin: 0;
   font-family: 'Prompt', sans-serif;
   background-image: url('./images/rest-phone.jpg');
-  background-size: 100vw 180vh;
+  background-size: 100vw 100%;
   background-repeat: no-repeat;
 }
 
