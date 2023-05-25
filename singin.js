@@ -10,44 +10,53 @@ const firebaseConfig = {
   
 
 firebase.initializeApp(firebaseConfig);
-  var userId = 0;
-  var state ="";
-  var userTableDB = firebase.database().ref('usersTable')
-  
-  document.getElementById('signup-form').addEventListener('submit', signupForm);
-  
-  function signupForm(e) {
-    e.preventDefault();
-  
-    var firstname = getElementVal('firstname');
-    var lastname = getElementVal('lastname');
-    var phonenumber = getElementVal('phonenumber');
-    var email = getElementVal('email');
-    var password = getElementVal('password');
-  
+var userId = 0;
+var state ="";
+var userTableDB = firebase.database().ref('usersTable');
+
+document.getElementById('signup-form').addEventListener('submit', signupForm);
+
+function signupForm(e) {
+  e.preventDefault();
+
+  var firstname = getElementVal('firstname');
+  var lastname = getElementVal('lastname');
+  var phonenumber = getElementVal('phonenumber');
+  var email = getElementVal('email');
+  var password = getElementVal('password');
+
+  if (validatePassword(password)) {
     saveUser(firstname, lastname, phonenumber, email, password);
     document.getElementById("signin-status").style.display = "block";
-    setTimeout(()=>{
+    setTimeout(() => {
       document.getElementById("signin-status").style.display = "none";
       document.getElementById("signin-status").style.transition = "all 0.3s ease-in-out";
     }, 3000);
     document.getElementById("signup-form").reset();
+  } else {
+    alert("Password should be at least 6 characters long and contain at least 1 number and 1 special character.");
   }
-  
-  const saveUser = (firstname, lastname, phonenumber, email, password) => {
-    var newUserForm = userTableDB.push();
-    var newUserId = ++userId; 
-    newUserForm.set({
-      id: newUserId,
-      firstname: firstname,
-      lastname: lastname,
-      phonenumber: phonenumber,
-      email: email,
-      password: password,
-      state: state
-    });
-  };
-  
-  const getElementVal = (id) => {
-    return document.getElementById(id).value;
-  };
+}
+
+const saveUser = (firstname, lastname, phonenumber, email, password) => {
+  var newUserForm = userTableDB.push();
+  var newUserId = ++userId;
+  newUserForm.set({
+    id: newUserId,
+    firstname: firstname,
+    lastname: lastname,
+    phonenumber: phonenumber,
+    email: email,
+    password: password,
+    state: state
+  });
+};
+
+const getElementVal = (id) => {
+  return document.getElementById(id).value;
+};
+
+const validatePassword = (password) => {
+  var regex = /^(?=.*\d)(?=.*[!@#$%^&*])(?=.*[a-zA-Z]).{6,}$/;
+  return regex.test(password);
+};

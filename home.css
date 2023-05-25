@@ -1,6 +1,8 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=Prompt:wght@200&display=swap');
+
 body, html {
   margin: 0;
-  font-family: sans-serif;
+  font-family: 'Prompt', sans-serif;
   background: linear-gradient(to bottom, #fceabb, #f8b500);
 }
 
@@ -130,7 +132,7 @@ nav {
 #menu, #feedback{
   color: #fff;
   padding: 10em 8vw 5em 8vw;
-  font-family: 'Playfair Display', serif;
+  font-family: 'Inter', sans-serif;
 }
 
 .categories > h3 {
@@ -307,7 +309,7 @@ nav {
 
 
 .info {
-  font-family: 'Montserrat', sans-serif;
+  font-family: 'Inter', sans-serif;
   font-weight: 100;
 }
 
@@ -331,7 +333,7 @@ nav {
   justify-content: center;
   align-content: cente;
   align-items: center;
-  height: 27em;
+  height: 35em;
 }
 
 #contactus-form input {
@@ -382,6 +384,18 @@ nav {
   font-weight: 600;
   color: #fff;
   display: none;
+}
+
+#copyrights {
+  padding: 3em 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#copyrights img {
+  width: 40vw;
+  height: 40vw;
 }
 
 @media screen and (max-width: 627px) {
@@ -538,8 +552,11 @@ nav {
   #contactus {
     flex-direction: row;
     justify-content:space-between;
-    padding: 10em 10vw 10em 15vw;
   }
-  
+
+  #copyrights img {
+    width: 20em;
+    height: 20em;
+  }
 }
 

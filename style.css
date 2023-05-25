@@ -1,12 +1,11 @@
-@import url('https://fonts.cdnfonts.com/css/clash-display');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=Prompt:wght@200&display=swap');
 
 body {
   margin: 0;
   background: linear-gradient(to bottom, #fceabb, #f8b500);
   background-repeat: no-repeat;
   background-size: cover;
-  font-family: Arial, Helvetica, sans-serif;
-  
+  font-family: 'Prompt', sans-serif;
 }
 
 .nav {
@@ -18,7 +17,7 @@ body {
   border: 2px;
   margin: 2em 2em;
   padding: 1em 2em;
-  border-radius: 30px;
+  border-radius: 40px;
   font-weight: 800;
   font-size: 1.5em;
   background-color: #add8e6;
@@ -67,7 +66,7 @@ body {
 
 .login-form input {
   margin-top: 5em;
-  border-radius: 20px;
+  border-radius: 40px;
   border: none;
   width: 75vw;
   font-weight: 800;
@@ -105,7 +104,7 @@ input[type="password"]:hover {
 
 #signup-form input {
   margin-top: 5em;
-  border-radius: 20px;
+  border-radius: 40px;
   border: none;
   width: 75vw;
   font-weight: 800;

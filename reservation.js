@@ -253,9 +253,8 @@ var reservationID = 0;
 var state = "";
 const reservationTableDB = firebase.database().ref('reservationTable');
 const statusButton = document.getElementById("restatus");
-document.getElementById('reserv').addEventListener('submit', reservForm);
 
-// Retrieve the latest reservationID value from the Firebase database
+// Retrieve the current reservation ID from Firebase and set it to reservationID variable
 reservationTableDB.on('value', function(snapshot) {
   var reservations = snapshot.val();
   var latestReservation = null;
@@ -266,13 +265,12 @@ reservationTableDB.on('value', function(snapshot) {
 
     if (latestID !== -Infinity) {
       latestReservation = reservations[latestID];
-      reservationID = latestReservation.id;
+      reservationID = latestReservation.id + 1; 
     }
   }
 
-  // Handle the case when no reservations exist yet
   if (!latestReservation) {
-    reservationID = 0;
+    reservationID = 1; 
   }
 });
 
@@ -284,12 +282,16 @@ function reservForm(e) {
 
   saveReservation(date, time);
 
-  if (date !== '' && time !== '' && orderstring !== '') {
+  if (date !== '' && time !== '') {
     document.getElementById("green").style.display = "block";
     setTimeout(() => {
       document.getElementById("green").style.display = "none";
       document.getElementById("green").style.transition = "all 0.3s ease-in-out";
     }, 3000);
+
+    reservationID++; 
+
+    alert("Your reservation ID is: " + reservationID);
     window.location.href = './checkout.html';
   } else {
     document.getElementById("red").style.display = "block";
@@ -304,15 +306,16 @@ function reservForm(e) {
 
 const saveReservation = (date, time) => {
   var newreservForm = reservationTableDB.push();
-  var newreservationID = ++reservationID;
+  var newreservationID = reservationID; 
   newreservForm.set({
     id: newreservationID,
     date: date,
     time: time,
-    orders: orderstring,
     state: "pending",
   });
-};
+}
+
+document.getElementById('reserv').addEventListener('submit', reservForm);
 
 
 document.getElementById('tracking').addEventListener('submit', trackReservation);

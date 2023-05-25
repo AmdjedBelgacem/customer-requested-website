@@ -95,15 +95,17 @@ function paymentForm(e) {
     var successMessage = document.createElement('p');
     successMessage.textContent = `Glad to have you at ${datetimeres}`;
     document.getElementById('paid').appendChild(successMessage);
+    
+    updateReservationID(reservationID, paymentID);
     updateReservationState(reservationID); 
   } else {
     alert("Something is wrong");
   }
 }
 
-const updateReservationState = (reservationID) => {
+const updateReservationID = (reservationID, paymentID) => {
   const reservationRef = reservationTableDB.child(reservationID);
-  reservationRef.update({ state: 'confirmed' });
+  reservationRef.update({ id: paymentID });
 };
 
 const isValidExpireDate = (expireDate) => {

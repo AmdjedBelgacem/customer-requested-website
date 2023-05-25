@@ -5,10 +5,11 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="reservation.css">
+    <link rel="icon" type="image/png" href="./images/mainlogo.png">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/firebase/7.14.1-0/firebase.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/firebase/7.14.1-0/firebase-auth.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/firebase/7.14.1-0/firebase-database.js"></script>
-    <title>Document</title>
+    <title>Reservation</title>
 </head>
 <body style="background-color: #ffa500; padding-bottom: 5em;">
     <div class="nav-phone">
@@ -176,16 +177,16 @@
         <div>
             <form action="./checkout.html" id="reserv">
               <label for="date">Date:</label>
-              <input type="date" id="date" name="date">
+              <input type="date" id="date" name="date" required>
               <label for="time">Time:</label>
-              <input type="time" id="time" name="time">
+              <input type="time" id="time" name="time" required>
               <button type="submit" id="checkout">Checkout</button>
             </form>
         </div>
         <div id="track">
           <form action="" id="tracking">
             <label for="toTrack">Track your reservation here: 
-              <input type="text" id="toTrack" placeholder="Enter Your ID">
+              <input type="text" id="toTrack" placeholder="Enter Your ID" required>
             </label>
             <button id="track-btn">Track</button>
           </form>
