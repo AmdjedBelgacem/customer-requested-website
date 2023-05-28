@@ -254,7 +254,7 @@ var state = "";
 const reservationTableDB = firebase.database().ref('reservationTable');
 const statusButton = document.getElementById("restatus");
 
-// Retrieve the current reservation ID from Firebase and set it to reservationID variable
+
 reservationTableDB.on('value', function(snapshot) {
   var reservations = snapshot.val();
   var latestReservation = null;

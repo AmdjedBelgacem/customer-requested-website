@@ -271,6 +271,7 @@ input[type="date"], input[type="time"], input[type="time"]{
   font-weight: 600;
   background-color: rgb(19 19 19);
   color: #fff; 
+  cursor: pointer;
 }
 
 #green {
@@ -412,6 +413,7 @@ input[type="date"], input[type="time"], input[type="time"]{
       width: 30vw;
       margin-bottom: 2em;
   }
+
   #contactus-form{
     max-width: 15em;
   }

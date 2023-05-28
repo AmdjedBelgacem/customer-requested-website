@@ -96,17 +96,24 @@ function paymentForm(e) {
     successMessage.textContent = `Glad to have you at ${datetimeres}`;
     document.getElementById('paid').appendChild(successMessage);
     
-    updateReservationID(reservationID, paymentID);
+    updateReservationID(paymentID);
     updateReservationState(reservationID); 
   } else {
     alert("Something is wrong");
   }
 }
 
-const updateReservationID = (reservationID, paymentID) => {
+const updateReservationState = (reservationID) => {
+  const reservationRef = reservationTableDB.child(reservationID);
+  reservationRef.update({ state: "confirmed" });
+};
+
+const updateReservationID = (paymentID) => {
   const reservationRef = reservationTableDB.child(reservationID);
   reservationRef.update({ id: paymentID });
 };
+
+
 
 const isValidExpireDate = (expireDate) => {
   const dateRegex = /^(0[1-9]|1[0-2])\/(2[4-9]|[3-9][0-9])$/;
